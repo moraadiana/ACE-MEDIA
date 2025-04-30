@@ -1,0 +1,147 @@
+﻿@model Staffportal.Models.Finance
+@{
+    ViewBag.Title = "Memo Header";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Memo Requisition</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Memo Requisition</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("memoheader","finance")" method="post">
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label>Staff No</label><br />
+                                <label class="text-primary">@Model.StaffNo</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Staff Name</label><br />
+                                <label class="text-primary">@Model.StaffName</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Directorate</label><br />
+                                <label class="text-primary">@Model.Directorate</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Department</label><br />
+                                <label class="text-primary">@Model.Department</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+                                <label class="form-label">To</label>
+                                @Html.DropDownListFor(m => m.To, new SelectList(Model.Jobs, "Code", "Description"), new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Through</label>
+                                @Html.DropDownListFor(m => m.Through, new SelectList(Model.Jobs, "Code", "Description"), "--Select Item--", new { @class = "form-control", id = "through" })
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Responsibility Center</label>
+                                @Html.DropDownListFor(m => m.ResponsibilityCenter, new SelectList(Model.ResponsibilityCenters, "Code", "Description"), "--Select Item--", new { @class = "form-control", id = "res-center" })
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Subject</label>
+                                <input type="text" name="Subject" class="form-control" required placeholder="Type your subject" />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Activity Start Date</label>
+                                <input type="date" name="ActivityStartDate" class="form-control" id="start-date" placeholder="Activity Start Date" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Activity Start Date</label>
+                                <input type="date" name="ActivityEndDate" class="form-control" id="end-date" placeholder="Activity End Date" />
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-check-label" for="is-prn"> PRN </label><br />
+                                <input class="form-check-input" type="checkbox" id="is-prn" name="IsPrn" />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Description 1</label>
+                                <textarea name="Description" class="form-control" placeholder="Type your description here..." required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Description 2</label>
+                                <textarea name="Purpose" class="form-control" placeholder="Type your description here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="@Url.Action("memolisting","finance")" class="btn btn-warning">Back</a>
+                                    <button type="submit" class="btn btn-primary" onclick="return validateInputs()">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script type="text/javascript">
+    const startDate = document.getElementById('start-date');
+    const endDate = document.getElementById('end-date');
+    const resCenter = document.getElementById('res-center');
+
+    flatpickr(startDate, {
+        minDate: 'today'
+    });
+
+    flatpickr(endDate, {
+        minDate: 'today'
+    });
+
+    const validateInputs = function () {
+        if (startDate.value === '') {
+            alert('Activity start date cannot be empty!');
+            startDate.focus();
+            return false;
+        }
+
+        if (endDate.value === '') {
+            alert('Activity end date cannot be empty!');
+            endDate.focus();
+            return false;
+        }
+
+        if (resCenter.value === '') {
+            alert('Responsibility center cannot be empty');
+            return false;
+        }
+    }
+</script>

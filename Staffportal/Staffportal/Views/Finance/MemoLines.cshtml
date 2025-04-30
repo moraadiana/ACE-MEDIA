@@ -1,0 +1,300 @@
+﻿@model Staffportal.Models.Finance
+@{
+    ViewBag.Title = $"Memo lines for memo number {Model.DocumentNo}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Memo Lines - <span class="text-primary">@Model.DocumentNo</span></h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Memo Lines</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    @if (Model.Status == "Pending")
+                    {
+                        <form action="@Url.Action("dsalines","finance")" method="post">
+                            <input name="DocumentNo" value="@Model.DocumentNo" class="form-control" type="hidden" />
+                            <input name="Status" value="@Model.Status" class="form-control" type="hidden" />
+                            <div class="col-md-12">
+                                <h5>DSA</h5>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-3">
+                                    <label class="form-label">Memo No</label><br />
+                                    <label class="text-primary">@Model.DocumentNo</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Staff</label>
+                                    @Html.DropDownListFor(m => m.EmployeeNo, new SelectList(Model.Employees, "Code", "Description"), new { @class = "form-control", id = "employee" })
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Salary Grade</label><br />
+                                    <label class="text-primary" id="salary-grade"></label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Regions</label>
+                                    <select name="Region" class="form-control" required id="regions"></select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Imprest Type</label>
+                                    @Html.DropDownListFor(m => m.ImprestType, new SelectList(Model.ImprestTypes, "Code", "Description"), new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Days</label>
+                                    <input type="number" name="Days" class="form-control" required placeholder="Enter No. of Days" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Directorate</label>
+                                    @Html.DropDownListFor(m => m.Directorate, new SelectList(Model.Directorates, "Code", "Description"), "--Select Item--", new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Department</label>
+                                    @Html.DropDownListFor(m => m.Department, new SelectList(Model.Departments, "Code", "Description"), "--Select Item--", new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Project Code</label>
+                                    @Html.DropDownListFor(m => m.Project, new SelectList(Model.Projects, "Code", "Description"), "--Select Item--", new { @class = "form-control", id = "project-code" })
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Activity Code</label>
+                                    <select name="Activity" class="form-control" id="activity-code"></select>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <button type="submit" class="btn btn-primary bx-pull-right"><i class="bx bx-pencil"></i> Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <h5>DSA Lines</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive text-wrap">
+                                <table id="example" class="table table-striped mt-3 small">
+                                    <thead>
+                                        <tr>
+                                            <th class="small">Memo No</th>
+                                            <th class="small">Staff Name</th>
+                                            <th class="small">Imprest Type</th>
+                                            <th class="small">Rate</th>
+                                            <th class="small">Days</th>
+                                            <th class="small">Amount</th>
+                                            <th class="small">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model.DsaLines.Any())
+                                        {
+                                            foreach (var item in Model.DsaLines)
+                                            {
+                                                <tr>
+                                                    <td>@Model.DocumentNo</td>
+                                                    <td>@item.StaffName</td>
+                                                    <td>@item.ImprestType</td>
+                                                    <td>@item.Rate</td>
+                                                    <td>@item.Days</td>
+                                                    <td>@String.Format(@"{0:#,##0.00}", item.Amount)</td>
+                                                    <td><a class="text-danger" href="@Url.Action("removedsaline", "finance", new { memoNo = Model.DocumentNo, status = Model.Status, id = item.SystemId })"><i class="bx bx-trash-alt"></i></a></td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    @if (Model.Status == "Pending")
+                    {
+                        <form method="post" action="@Url.Action("othercostlines","finance")">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>Other Costs</h5>
+                                </div>
+                                <input type="hidden" name="DocumentNo" value="@Model.DocumentNo" />
+                                <input type="hidden" name="Status" value="@Model.Status" />
+
+                                <div class="row mt-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Memo No</label><br />
+                                        <label class="text-primary">@Model.DocumentNo</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Staff</label>
+                                        @Html.DropDownListFor(m => m.EmployeeNo, new SelectList(Model.Employees, "Code", "Description"), new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Imprest Type</label>
+                                        @Html.DropDownListFor(m => m.ImprestType, new SelectList(Model.ImprestTypes, "Code", "Description"), new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Amount</label>
+                                        <input type="number" name="Amount" class="form-control" required placeholder="Amount" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Directorate</label>
+                                        @Html.DropDownListFor(m => m.Directorate, new SelectList(Model.Directorates, "Code", "Description"), "--Select Item--", new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Department</label>
+                                        @Html.DropDownListFor(m => m.Department, new SelectList(Model.Departments, "Code", "Description"), "--Select Item--", new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Project Code</label>
+                                        @Html.DropDownListFor(m => m.Project, new SelectList(Model.Projects, "Code", "Description"), "--Select Item--", new { @class = "form-control", id = "project-code-1" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Activity Code</label>
+                                        <select name="Activity" class="form-control" id="activity-code-1"></select>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label">Description</label>
+                                        <textarea name="Description" class="form-control" required placeholder="Type your description here..."></textarea>
+                                    </div>
+                                    <div class="col-md-12 mt-4">
+                                        <button type="submit" class="btn btn-primary bx-pull-right"><i class="bx bx-pencil"></i> Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <h5>Other Cost Lines</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive text-wrap">
+                                <table id="example1" class="table table-striped mt-3 small">
+                                    <thead>
+                                        <tr>
+                                            <th class="small">Memo No</th>
+                                            <th class="small">Staff Name</th>
+                                            <th class="small">Imprest Type</th>
+                                            <th class="small">Amount</th>
+                                            <th class="small">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model.OtherCostsLines.Any())
+                                        {
+                                            foreach (var item in Model.OtherCostsLines)
+                                            {
+                                                <tr>
+                                                    <td>@Model.DocumentNo</td>
+                                                    <td>@item.StaffName</td>
+                                                    <td>@item.ImprestType</td>
+                                                    <td>@String.Format(@"{0:#,##0.00}", item.Amount)</td>
+                                                    <td><a class="text-danger" href="@Url.Action("removeothercostline", "finance", new { memoNo = Model.DocumentNo, status = Model.Status, id = item.SystemId })"><i class="bx bx-trash-alt"></i></a></td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12 d-flex justify-content-between align-items-center">
+                            <!--<a href="@Url.Action("memolisting", "finance")" class="btn btn-warning">Back</a>-->
+                            <a class="btn btn-primary" href="@Url.Action("memoreport", "downloads", new {documentNo=Model.DocumentNo})">Memo Report</a>
+                            @if (Model.Status == "Open" || Model.Status == "Pending")
+                            {
+                                <a href="@Url.Action("sendmemoapproval","finance", new {memoNo = Model.DocumentNo, status = Model.Status })" class="btn btn-success">Send Approval</a>
+                            }
+                            else if (Model.Status == "Pending Approval")
+                            {
+                                <a href="@Url.Action("cancelmemoapproval","finance", new {memoNo = Model.DocumentNo, status = Model.Status})" class="btn btn-danger">Cancel Approval</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const projectCode = document.getElementById('project-code');
+    const projectCode1 = document.getElementById('project-code-1');
+    const activityCode = document.getElementById('activity-code');
+    const activityCode1 = document.getElementById('activity-code-1');
+    const employee = document.getElementById('employee');
+    const salaryGrade = document.getElementById('salary-grade');
+    const regions = document.getElementById('regions');
+
+    const getMemoRegions = async function (grade) {
+        regions.innerHTML = '';
+        const response = await fetch(`/api/getmemoregions?grade=${grade}`);
+        const result = await response.json();
+        let html = '';
+        result.forEach(function (item, i, arr) {
+            html += `<option value=${item.Code}>${item.Description}</option>`;
+        });
+        regions.innerHTML = html;
+    }
+
+    const getSalaryGrade = async function () {
+        salaryGrade.textContent = '';
+        const selectedEmployee = employee.value;
+        const response = await fetch(`/api/getsalarygrade?employee=${selectedEmployee}`);
+        const result = await response.json();
+        salaryGrade.textContent = result;
+        getMemoRegions(result);
+    }
+    getSalaryGrade();
+    employee.addEventListener('change', getSalaryGrade);
+
+    const getActivities = async function () {
+        const project = projectCode.value;
+        activityCode.innerHTML = '';
+        const response = await fetch(`/api/getactivities?project=${project}`);
+        const result = await response.json();
+        let html = "<option value=''>--Select Item--</option>";
+        result.forEach(function (item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Code} => ${item.Description}</option>`;
+        })
+        activityCode.innerHTML = html;
+    }
+    getActivities();
+    projectCode.addEventListener('change', getActivities);
+
+    const getActivities1 = async function () {
+        const project = projectCode1.value;
+        activityCode1.innerHTML = '';
+        const response = await fetch(`/api/getactivities?project=${project}`);
+        const result = await response.json();
+        let html = "<option value=''>--Select Item--</option>";
+        result.forEach(function (item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Code} => ${item.Description}</option>`;
+        })
+        activityCode1.innerHTML = html;
+    }
+    getActivities1();
+    projectCode1.addEventListener('change', getActivities1);
+</script>

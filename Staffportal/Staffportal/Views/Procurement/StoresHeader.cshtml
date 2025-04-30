@@ -1,0 +1,108 @@
+﻿@model Staffportal.Models.Procurement
+@{
+    ViewBag.Title = "StoresHeader";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Store Requisition</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Store Requisition</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("storesheader","procurement")" method="post">
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label>Staff No</label><br />
+                                <label class="text-primary">@Model.StaffNo</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Staff Name</label><br />
+                                <label class="text-primary">@Model.StaffName</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Directorate</label><br />
+                                <label class="text-primary">@Model.Directorate</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Department</label><br />
+                                <label class="text-primary">@Model.Department</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Required Date</label>
+                                <input name="RequiredDate" type="date" class="form-control" placeholder="Required Date" id="required-date" />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Responsibility Center</label>
+                                @Html.DropDownListFor(m => m.ResponsibilityCenter, new SelectList(Model.ResponsibilityCenters, "Code", "Description"), new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Issuing Sore</label>
+                                @Html.DropDownListFor(m => m.IssuingStore, new SelectList(Model.IssuingStores, "Code", "Description"), new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label class="form-label">Description</label>
+                                <textarea name="Description" class="form-control" required placeholder="Type your description here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="@Url.Action("storelisting","procurement")" class="btn btn-warning">Back</a>
+                                    <button type="submit" class="btn btn-primary" onclick="return validateInputs()">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script type="text/javascript">
+    const requiredDate = document.getElementById('required-date');
+    flatpickr(requiredDate, {
+        minDate: 'today'
+    });
+    console.log(requiredDate);
+
+    const validateInputs = function () {
+        if (requiredDate.value == '') {
+            alert('Required date cannot be empty!');
+            requiredDate.focus();
+            return false;
+        }
+    }
+</script>

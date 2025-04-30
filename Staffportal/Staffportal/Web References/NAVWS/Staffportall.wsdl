@@ -1,0 +1,4121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/Staffportall" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportall" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportall" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="InsertClaimRequisitionLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="claimNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="claimType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="accNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="clientCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="jobCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="receiptNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="expenditureDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertClaimRequisitionLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertHRMTrainingParticipants">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="trainingCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="objective" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertHRMTrainingParticipants_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertImprestRequisitonLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="advanceType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertImprestRequisitonLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertImprestSurrenderLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="actualSpent" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="cashAmount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertImprestSurrenderLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertPettyCashRequisitionLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="advanceType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertPettyCashRequisitionLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertPettyCashSurrenderLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amountSpent" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="cashReturned" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertPettyCashSurrenderLines_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="InsertStoreRequisitionLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="storeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="type" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantityRequested" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="issuingStore" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InsertStoreRequisitionLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsLeaveAnnual">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="IsLeaveAnnual_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoadImprestSurrenderLineDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoadImprestSurrenderLineDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoadPettyCashSurrenderSurrenderLineDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoadPettyCashSurrenderSurrenderLineDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginForUnchangedPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelClaimRequisition">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="claimNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelClaimRequisition_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="OnCancelImprestRequisition">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelImprestRequisition_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="OnCancelImprestSurrender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelImprestSurrender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelLeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelLeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelPettyCashRequisition">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelPettyCashRequisition_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="OnCancelPettyCashSurrender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelPettyCashSurrender_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="OnCancelStoreRequisitionApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="storeNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnCancelStoreRequisitionApproval_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="OnSendClaimRequisitionForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="claimNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendClaimRequisitionForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendImprestRequisitionForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendImprestRequisitionForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendImprestSurrenderForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendImprestSurrenderForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendPettyCashRequisitionForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendPettyCashRequisitionForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendPettyCashSurrenderForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendPettyCashSurrenderForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendStoreRequisitionForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="storeNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnSendStoreRequisitionForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnsendLeaveRequisitionForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="OnsendLeaveRequisitionForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RegFileUploadAtt1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="retNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="attachment" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tableId" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RegFileUploadAtt1_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RegFileUploadAtt">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="retNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="attachment" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tableId" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RegFileUploadAtt_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveAttachment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="systemId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveAttachment_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="RemoveClaimRequisitionLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveClaimRequisitionLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveHRMTrainingParticipant">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="trainingCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveHRMTrainingParticipant_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveImprestRequisitionLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="advanceType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveImprestRequisitionLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemovePettyCashRequisitionLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemovePettyCashRequisitionLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SaveMemoAttchmnts">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentsNoz" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="attachmentz" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="decriptionz" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SaveMemoAttchmnts_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="StaffLogin">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="StaffLogin_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateImprestHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateImprestHeader_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashHeader_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashSurrenderHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashSurrenderHeader_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashSurrenderLines1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amountSpent" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="cashReturned" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashSurrenderLines1_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashSurrenderLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="actualSpent" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="cashReturned" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="receiptNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdatePettyCashSurrenderLines_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateStaffPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="genpass" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateStaffPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UploadDocument">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="retNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="attachment" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tableId" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UploadDocument_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="ValidateStartDate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="starting_Date" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ValidateStartDate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getEmployeeUserId">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="staffNum" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getEmployeeUserId_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AvailableLeaveDays1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AvailableLeaveDays1_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AvailableLeaveDays">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AvailableLeaveDays_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AvailableLeaveDayss">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AvailableLeaveDayss_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CalcEndDate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="lDays" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="leave_Type" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CalcEndDate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CalcReturnDate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="leave_Type" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CalcReturnDate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckStaffPasswordChanged">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckStaffPasswordChanged_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidStaffNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckValidStaffNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateClaimRequisitionHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="jobCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="clientCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateClaimRequisitionHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateImprestRequisitionHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="clientCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="jobCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateImprestRequisitionHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateImprestSurrenderHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateImprestSurrenderHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePettyCashRequisitionHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="department" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePettyCashRequisitionHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePettyCashSurrenderHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreatePettyCashSurrenderHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateStoreRequisitionHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="requisitionType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="requiredDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="department" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="resCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="issuingStore" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateStoreRequisitionHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteDocumentAttachment">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="systemId" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteDocumentAttachment_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteStoreLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteStoreLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DetermineIfIncludesNonWorking">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fLeaveCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DetermineIfIncludesNonWorking_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="fLeaveCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DetermineIfIsNonWorking">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bcDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="leave_Type" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DetermineIfIsNonWorking_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="bcDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="leave_Type" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DetermineLeaveReturnDate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="fBeginDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="fDays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="leave_Type" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DetermineLeaveReturnDate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateMemoReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="memoNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateMemoReport_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GeneratePayslipReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="period" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePayslipReport_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GenerateStaffLeaveStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateStaffLeaveStatement_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="Generatep9Report">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="period" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="fileNameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Generatep9Report_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetAdvancetype">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="type" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAdvancetype_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetApprovalEntries">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetApprovalEntries_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAttachmentDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="systemId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAttachmentDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetClaimLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="claimNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetClaimLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetClaimTypes">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetClaimTypes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomers">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCustomers_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDefaultDays">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDefaultDays_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDimensions">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="dimensionCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDimensions_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDocResponsibilityCentres">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="grouping" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDocResponsibilityCentres_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetEmployeeName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetEmployeeName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetEmployees">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetEmployees_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetGLAccounts">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetGLAccounts_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetImprestDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="imprestNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetImprestDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetImprestLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="memoNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetImprestLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetImprestSurrenderResponsibilityCenter">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetImprestSurrenderResponsibilityCenter_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetItemQuantity">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetItemQuantity_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveRelieverDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="relieverNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveRelieverDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveTransactions">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveTransactions_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveTypes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="gender" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLeaveTypes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMonthName">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="monthNumber" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMonthName_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyAttachments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyAttachments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyClaims">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyClaims_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyImprestSurrenders">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyImprestSurrenders_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyImprests">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyImprests_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyPettyCashRequests">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyPettyCashRequests_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyPettyCashSurrenders">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyPettyCashSurrenders_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyStoresRequests">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyStoresRequests_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyleaveApplications">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetMyleaveApplications_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetNextImprestSurrenderNo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetNextImprestSurrenderNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetNextPettyCashNo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetNextPettyCashNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPayslipMonths">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="currentYear" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPayslipMonths_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPayslipYears">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetPayslipYears_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pettyCashNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashSurrenderDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashSurrenderDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashSurrenderLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPettyCashSurrenderLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPostedImprests">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPostedImprests_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetQuantityInStore">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetQuantityInStore_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetReceiptAmount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="receiptNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetReceiptAmount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRelieverDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="relieverNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRelieverDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRelieverEmail">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="staffNum" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRelieverEmail_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffCitizenship">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="code" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffCitizenship_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffDepartmentDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffDepartmentDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffEmail">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffEmail_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffGender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffGender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffPettyCashNo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStaffPettyCashNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStoreItemQuantity">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetStoreItemQuantity_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetTotalImprestAmount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetTotalImprestAmount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetTotalImprestSurrenderAmount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="surrenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetTotalImprestSurrenderAmount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMLeaveApplication1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reliever" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appliedDays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="returnDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMLeaveApplication1_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMLeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reliever" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appliedDays" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="returnDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveBalance" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMLeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMTrainingApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="supervisor" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="trainingCategory" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="courseCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sponsor" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="location" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="country" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="county" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="trainer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="directorate" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="department" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HRMTrainingApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingLeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingLeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingPettyCash">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingPettyCash_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="InsertClaimRequisitionLines">
+    <part name="parameters" element="tns:InsertClaimRequisitionLines" />
+  </message>
+  <message name="InsertClaimRequisitionLines_Result">
+    <part name="parameters" element="tns:InsertClaimRequisitionLines_Result" />
+  </message>
+  <message name="InsertHRMTrainingParticipants">
+    <part name="parameters" element="tns:InsertHRMTrainingParticipants" />
+  </message>
+  <message name="InsertHRMTrainingParticipants_Result">
+    <part name="parameters" element="tns:InsertHRMTrainingParticipants_Result" />
+  </message>
+  <message name="InsertImprestRequisitonLines">
+    <part name="parameters" element="tns:InsertImprestRequisitonLines" />
+  </message>
+  <message name="InsertImprestRequisitonLines_Result">
+    <part name="parameters" element="tns:InsertImprestRequisitonLines_Result" />
+  </message>
+  <message name="InsertImprestSurrenderLines">
+    <part name="parameters" element="tns:InsertImprestSurrenderLines" />
+  </message>
+  <message name="InsertImprestSurrenderLines_Result">
+    <part name="parameters" element="tns:InsertImprestSurrenderLines_Result" />
+  </message>
+  <message name="InsertPettyCashRequisitionLine">
+    <part name="parameters" element="tns:InsertPettyCashRequisitionLine" />
+  </message>
+  <message name="InsertPettyCashRequisitionLine_Result">
+    <part name="parameters" element="tns:InsertPettyCashRequisitionLine_Result" />
+  </message>
+  <message name="InsertPettyCashSurrenderLines">
+    <part name="parameters" element="tns:InsertPettyCashSurrenderLines" />
+  </message>
+  <message name="InsertPettyCashSurrenderLines_Result">
+    <part name="parameters" element="tns:InsertPettyCashSurrenderLines_Result" />
+  </message>
+  <message name="InsertStoreRequisitionLines">
+    <part name="parameters" element="tns:InsertStoreRequisitionLines" />
+  </message>
+  <message name="InsertStoreRequisitionLines_Result">
+    <part name="parameters" element="tns:InsertStoreRequisitionLines_Result" />
+  </message>
+  <message name="IsLeaveAnnual">
+    <part name="parameters" element="tns:IsLeaveAnnual" />
+  </message>
+  <message name="IsLeaveAnnual_Result">
+    <part name="parameters" element="tns:IsLeaveAnnual_Result" />
+  </message>
+  <message name="LoadImprestSurrenderLineDetails">
+    <part name="parameters" element="tns:LoadImprestSurrenderLineDetails" />
+  </message>
+  <message name="LoadImprestSurrenderLineDetails_Result">
+    <part name="parameters" element="tns:LoadImprestSurrenderLineDetails_Result" />
+  </message>
+  <message name="LoadPettyCashSurrenderSurrenderLineDetails">
+    <part name="parameters" element="tns:LoadPettyCashSurrenderSurrenderLineDetails" />
+  </message>
+  <message name="LoadPettyCashSurrenderSurrenderLineDetails_Result">
+    <part name="parameters" element="tns:LoadPettyCashSurrenderSurrenderLineDetails_Result" />
+  </message>
+  <message name="LoginForUnchangedPassword">
+    <part name="parameters" element="tns:LoginForUnchangedPassword" />
+  </message>
+  <message name="LoginForUnchangedPassword_Result">
+    <part name="parameters" element="tns:LoginForUnchangedPassword_Result" />
+  </message>
+  <message name="OnCancelClaimRequisition">
+    <part name="parameters" element="tns:OnCancelClaimRequisition" />
+  </message>
+  <message name="OnCancelClaimRequisition_Result">
+    <part name="parameters" element="tns:OnCancelClaimRequisition_Result" />
+  </message>
+  <message name="OnCancelImprestRequisition">
+    <part name="parameters" element="tns:OnCancelImprestRequisition" />
+  </message>
+  <message name="OnCancelImprestRequisition_Result">
+    <part name="parameters" element="tns:OnCancelImprestRequisition_Result" />
+  </message>
+  <message name="OnCancelImprestSurrender">
+    <part name="parameters" element="tns:OnCancelImprestSurrender" />
+  </message>
+  <message name="OnCancelImprestSurrender_Result">
+    <part name="parameters" element="tns:OnCancelImprestSurrender_Result" />
+  </message>
+  <message name="OnCancelLeaveApplication">
+    <part name="parameters" element="tns:OnCancelLeaveApplication" />
+  </message>
+  <message name="OnCancelLeaveApplication_Result">
+    <part name="parameters" element="tns:OnCancelLeaveApplication_Result" />
+  </message>
+  <message name="OnCancelPettyCashRequisition">
+    <part name="parameters" element="tns:OnCancelPettyCashRequisition" />
+  </message>
+  <message name="OnCancelPettyCashRequisition_Result">
+    <part name="parameters" element="tns:OnCancelPettyCashRequisition_Result" />
+  </message>
+  <message name="OnCancelPettyCashSurrender">
+    <part name="parameters" element="tns:OnCancelPettyCashSurrender" />
+  </message>
+  <message name="OnCancelPettyCashSurrender_Result">
+    <part name="parameters" element="tns:OnCancelPettyCashSurrender_Result" />
+  </message>
+  <message name="OnCancelStoreRequisitionApproval">
+    <part name="parameters" element="tns:OnCancelStoreRequisitionApproval" />
+  </message>
+  <message name="OnCancelStoreRequisitionApproval_Result">
+    <part name="parameters" element="tns:OnCancelStoreRequisitionApproval_Result" />
+  </message>
+  <message name="OnSendClaimRequisitionForApproval">
+    <part name="parameters" element="tns:OnSendClaimRequisitionForApproval" />
+  </message>
+  <message name="OnSendClaimRequisitionForApproval_Result">
+    <part name="parameters" element="tns:OnSendClaimRequisitionForApproval_Result" />
+  </message>
+  <message name="OnSendImprestRequisitionForApproval">
+    <part name="parameters" element="tns:OnSendImprestRequisitionForApproval" />
+  </message>
+  <message name="OnSendImprestRequisitionForApproval_Result">
+    <part name="parameters" element="tns:OnSendImprestRequisitionForApproval_Result" />
+  </message>
+  <message name="OnSendImprestSurrenderForApproval">
+    <part name="parameters" element="tns:OnSendImprestSurrenderForApproval" />
+  </message>
+  <message name="OnSendImprestSurrenderForApproval_Result">
+    <part name="parameters" element="tns:OnSendImprestSurrenderForApproval_Result" />
+  </message>
+  <message name="OnSendPettyCashRequisitionForApproval">
+    <part name="parameters" element="tns:OnSendPettyCashRequisitionForApproval" />
+  </message>
+  <message name="OnSendPettyCashRequisitionForApproval_Result">
+    <part name="parameters" element="tns:OnSendPettyCashRequisitionForApproval_Result" />
+  </message>
+  <message name="OnSendPettyCashSurrenderForApproval">
+    <part name="parameters" element="tns:OnSendPettyCashSurrenderForApproval" />
+  </message>
+  <message name="OnSendPettyCashSurrenderForApproval_Result">
+    <part name="parameters" element="tns:OnSendPettyCashSurrenderForApproval_Result" />
+  </message>
+  <message name="OnSendStoreRequisitionForApproval">
+    <part name="parameters" element="tns:OnSendStoreRequisitionForApproval" />
+  </message>
+  <message name="OnSendStoreRequisitionForApproval_Result">
+    <part name="parameters" element="tns:OnSendStoreRequisitionForApproval_Result" />
+  </message>
+  <message name="OnsendLeaveRequisitionForApproval">
+    <part name="parameters" element="tns:OnsendLeaveRequisitionForApproval" />
+  </message>
+  <message name="OnsendLeaveRequisitionForApproval_Result">
+    <part name="parameters" element="tns:OnsendLeaveRequisitionForApproval_Result" />
+  </message>
+  <message name="RegFileUploadAtt1">
+    <part name="parameters" element="tns:RegFileUploadAtt1" />
+  </message>
+  <message name="RegFileUploadAtt1_Result">
+    <part name="parameters" element="tns:RegFileUploadAtt1_Result" />
+  </message>
+  <message name="RegFileUploadAtt">
+    <part name="parameters" element="tns:RegFileUploadAtt" />
+  </message>
+  <message name="RegFileUploadAtt_Result">
+    <part name="parameters" element="tns:RegFileUploadAtt_Result" />
+  </message>
+  <message name="RemoveAttachment">
+    <part name="parameters" element="tns:RemoveAttachment" />
+  </message>
+  <message name="RemoveAttachment_Result">
+    <part name="parameters" element="tns:RemoveAttachment_Result" />
+  </message>
+  <message name="RemoveClaimRequisitionLines">
+    <part name="parameters" element="tns:RemoveClaimRequisitionLines" />
+  </message>
+  <message name="RemoveClaimRequisitionLines_Result">
+    <part name="parameters" element="tns:RemoveClaimRequisitionLines_Result" />
+  </message>
+  <message name="RemoveHRMTrainingParticipant">
+    <part name="parameters" element="tns:RemoveHRMTrainingParticipant" />
+  </message>
+  <message name="RemoveHRMTrainingParticipant_Result">
+    <part name="parameters" element="tns:RemoveHRMTrainingParticipant_Result" />
+  </message>
+  <message name="RemoveImprestRequisitionLine">
+    <part name="parameters" element="tns:RemoveImprestRequisitionLine" />
+  </message>
+  <message name="RemoveImprestRequisitionLine_Result">
+    <part name="parameters" element="tns:RemoveImprestRequisitionLine_Result" />
+  </message>
+  <message name="RemovePettyCashRequisitionLine">
+    <part name="parameters" element="tns:RemovePettyCashRequisitionLine" />
+  </message>
+  <message name="RemovePettyCashRequisitionLine_Result">
+    <part name="parameters" element="tns:RemovePettyCashRequisitionLine_Result" />
+  </message>
+  <message name="SaveMemoAttchmnts">
+    <part name="parameters" element="tns:SaveMemoAttchmnts" />
+  </message>
+  <message name="SaveMemoAttchmnts_Result">
+    <part name="parameters" element="tns:SaveMemoAttchmnts_Result" />
+  </message>
+  <message name="StaffLogin">
+    <part name="parameters" element="tns:StaffLogin" />
+  </message>
+  <message name="StaffLogin_Result">
+    <part name="parameters" element="tns:StaffLogin_Result" />
+  </message>
+  <message name="UpdateImprestHeader">
+    <part name="parameters" element="tns:UpdateImprestHeader" />
+  </message>
+  <message name="UpdateImprestHeader_Result">
+    <part name="parameters" element="tns:UpdateImprestHeader_Result" />
+  </message>
+  <message name="UpdatePettyCashHeader">
+    <part name="parameters" element="tns:UpdatePettyCashHeader" />
+  </message>
+  <message name="UpdatePettyCashHeader_Result">
+    <part name="parameters" element="tns:UpdatePettyCashHeader_Result" />
+  </message>
+  <message name="UpdatePettyCashSurrenderHeader">
+    <part name="parameters" element="tns:UpdatePettyCashSurrenderHeader" />
+  </message>
+  <message name="UpdatePettyCashSurrenderHeader_Result">
+    <part name="parameters" element="tns:UpdatePettyCashSurrenderHeader_Result" />
+  </message>
+  <message name="UpdatePettyCashSurrenderLines1">
+    <part name="parameters" element="tns:UpdatePettyCashSurrenderLines1" />
+  </message>
+  <message name="UpdatePettyCashSurrenderLines1_Result">
+    <part name="parameters" element="tns:UpdatePettyCashSurrenderLines1_Result" />
+  </message>
+  <message name="UpdatePettyCashSurrenderLines">
+    <part name="parameters" element="tns:UpdatePettyCashSurrenderLines" />
+  </message>
+  <message name="UpdatePettyCashSurrenderLines_Result">
+    <part name="parameters" element="tns:UpdatePettyCashSurrenderLines_Result" />
+  </message>
+  <message name="UpdateStaffPassword">
+    <part name="parameters" element="tns:UpdateStaffPassword" />
+  </message>
+  <message name="UpdateStaffPassword_Result">
+    <part name="parameters" element="tns:UpdateStaffPassword_Result" />
+  </message>
+  <message name="UploadDocument">
+    <part name="parameters" element="tns:UploadDocument" />
+  </message>
+  <message name="UploadDocument_Result">
+    <part name="parameters" element="tns:UploadDocument_Result" />
+  </message>
+  <message name="ValidateStartDate">
+    <part name="parameters" element="tns:ValidateStartDate" />
+  </message>
+  <message name="ValidateStartDate_Result">
+    <part name="parameters" element="tns:ValidateStartDate_Result" />
+  </message>
+  <message name="getEmployeeUserId">
+    <part name="parameters" element="tns:getEmployeeUserId" />
+  </message>
+  <message name="getEmployeeUserId_Result">
+    <part name="parameters" element="tns:getEmployeeUserId_Result" />
+  </message>
+  <message name="AvailableLeaveDays1">
+    <part name="parameters" element="tns:AvailableLeaveDays1" />
+  </message>
+  <message name="AvailableLeaveDays1_Result">
+    <part name="parameters" element="tns:AvailableLeaveDays1_Result" />
+  </message>
+  <message name="AvailableLeaveDays">
+    <part name="parameters" element="tns:AvailableLeaveDays" />
+  </message>
+  <message name="AvailableLeaveDays_Result">
+    <part name="parameters" element="tns:AvailableLeaveDays_Result" />
+  </message>
+  <message name="AvailableLeaveDayss">
+    <part name="parameters" element="tns:AvailableLeaveDayss" />
+  </message>
+  <message name="AvailableLeaveDayss_Result">
+    <part name="parameters" element="tns:AvailableLeaveDayss_Result" />
+  </message>
+  <message name="CalcEndDate">
+    <part name="parameters" element="tns:CalcEndDate" />
+  </message>
+  <message name="CalcEndDate_Result">
+    <part name="parameters" element="tns:CalcEndDate_Result" />
+  </message>
+  <message name="CalcReturnDate">
+    <part name="parameters" element="tns:CalcReturnDate" />
+  </message>
+  <message name="CalcReturnDate_Result">
+    <part name="parameters" element="tns:CalcReturnDate_Result" />
+  </message>
+  <message name="CheckStaffPasswordChanged">
+    <part name="parameters" element="tns:CheckStaffPasswordChanged" />
+  </message>
+  <message name="CheckStaffPasswordChanged_Result">
+    <part name="parameters" element="tns:CheckStaffPasswordChanged_Result" />
+  </message>
+  <message name="CheckValidStaffNo">
+    <part name="parameters" element="tns:CheckValidStaffNo" />
+  </message>
+  <message name="CheckValidStaffNo_Result">
+    <part name="parameters" element="tns:CheckValidStaffNo_Result" />
+  </message>
+  <message name="CreateClaimRequisitionHeader">
+    <part name="parameters" element="tns:CreateClaimRequisitionHeader" />
+  </message>
+  <message name="CreateClaimRequisitionHeader_Result">
+    <part name="parameters" element="tns:CreateClaimRequisitionHeader_Result" />
+  </message>
+  <message name="CreateImprestRequisitionHeader">
+    <part name="parameters" element="tns:CreateImprestRequisitionHeader" />
+  </message>
+  <message name="CreateImprestRequisitionHeader_Result">
+    <part name="parameters" element="tns:CreateImprestRequisitionHeader_Result" />
+  </message>
+  <message name="CreateImprestSurrenderHeader">
+    <part name="parameters" element="tns:CreateImprestSurrenderHeader" />
+  </message>
+  <message name="CreateImprestSurrenderHeader_Result">
+    <part name="parameters" element="tns:CreateImprestSurrenderHeader_Result" />
+  </message>
+  <message name="CreatePettyCashRequisitionHeader">
+    <part name="parameters" element="tns:CreatePettyCashRequisitionHeader" />
+  </message>
+  <message name="CreatePettyCashRequisitionHeader_Result">
+    <part name="parameters" element="tns:CreatePettyCashRequisitionHeader_Result" />
+  </message>
+  <message name="CreatePettyCashSurrenderHeader">
+    <part name="parameters" element="tns:CreatePettyCashSurrenderHeader" />
+  </message>
+  <message name="CreatePettyCashSurrenderHeader_Result">
+    <part name="parameters" element="tns:CreatePettyCashSurrenderHeader_Result" />
+  </message>
+  <message name="CreateStoreRequisitionHeader">
+    <part name="parameters" element="tns:CreateStoreRequisitionHeader" />
+  </message>
+  <message name="CreateStoreRequisitionHeader_Result">
+    <part name="parameters" element="tns:CreateStoreRequisitionHeader_Result" />
+  </message>
+  <message name="DeleteDocumentAttachment">
+    <part name="parameters" element="tns:DeleteDocumentAttachment" />
+  </message>
+  <message name="DeleteDocumentAttachment_Result">
+    <part name="parameters" element="tns:DeleteDocumentAttachment_Result" />
+  </message>
+  <message name="DeleteStoreLine">
+    <part name="parameters" element="tns:DeleteStoreLine" />
+  </message>
+  <message name="DeleteStoreLine_Result">
+    <part name="parameters" element="tns:DeleteStoreLine_Result" />
+  </message>
+  <message name="DetermineIfIncludesNonWorking">
+    <part name="parameters" element="tns:DetermineIfIncludesNonWorking" />
+  </message>
+  <message name="DetermineIfIncludesNonWorking_Result">
+    <part name="parameters" element="tns:DetermineIfIncludesNonWorking_Result" />
+  </message>
+  <message name="DetermineIfIsNonWorking">
+    <part name="parameters" element="tns:DetermineIfIsNonWorking" />
+  </message>
+  <message name="DetermineIfIsNonWorking_Result">
+    <part name="parameters" element="tns:DetermineIfIsNonWorking_Result" />
+  </message>
+  <message name="DetermineLeaveReturnDate">
+    <part name="parameters" element="tns:DetermineLeaveReturnDate" />
+  </message>
+  <message name="DetermineLeaveReturnDate_Result">
+    <part name="parameters" element="tns:DetermineLeaveReturnDate_Result" />
+  </message>
+  <message name="GenerateMemoReport">
+    <part name="parameters" element="tns:GenerateMemoReport" />
+  </message>
+  <message name="GenerateMemoReport_Result">
+    <part name="parameters" element="tns:GenerateMemoReport_Result" />
+  </message>
+  <message name="GeneratePayslipReport">
+    <part name="parameters" element="tns:GeneratePayslipReport" />
+  </message>
+  <message name="GeneratePayslipReport_Result">
+    <part name="parameters" element="tns:GeneratePayslipReport_Result" />
+  </message>
+  <message name="GenerateStaffLeaveStatement">
+    <part name="parameters" element="tns:GenerateStaffLeaveStatement" />
+  </message>
+  <message name="GenerateStaffLeaveStatement_Result">
+    <part name="parameters" element="tns:GenerateStaffLeaveStatement_Result" />
+  </message>
+  <message name="Generatep9Report">
+    <part name="parameters" element="tns:Generatep9Report" />
+  </message>
+  <message name="Generatep9Report_Result">
+    <part name="parameters" element="tns:Generatep9Report_Result" />
+  </message>
+  <message name="GetAdvancetype">
+    <part name="parameters" element="tns:GetAdvancetype" />
+  </message>
+  <message name="GetAdvancetype_Result">
+    <part name="parameters" element="tns:GetAdvancetype_Result" />
+  </message>
+  <message name="GetApprovalEntries">
+    <part name="parameters" element="tns:GetApprovalEntries" />
+  </message>
+  <message name="GetApprovalEntries_Result">
+    <part name="parameters" element="tns:GetApprovalEntries_Result" />
+  </message>
+  <message name="GetAttachmentDetails">
+    <part name="parameters" element="tns:GetAttachmentDetails" />
+  </message>
+  <message name="GetAttachmentDetails_Result">
+    <part name="parameters" element="tns:GetAttachmentDetails_Result" />
+  </message>
+  <message name="GetClaimLines">
+    <part name="parameters" element="tns:GetClaimLines" />
+  </message>
+  <message name="GetClaimLines_Result">
+    <part name="parameters" element="tns:GetClaimLines_Result" />
+  </message>
+  <message name="GetClaimTypes">
+    <part name="parameters" element="tns:GetClaimTypes" />
+  </message>
+  <message name="GetClaimTypes_Result">
+    <part name="parameters" element="tns:GetClaimTypes_Result" />
+  </message>
+  <message name="GetCustomers">
+    <part name="parameters" element="tns:GetCustomers" />
+  </message>
+  <message name="GetCustomers_Result">
+    <part name="parameters" element="tns:GetCustomers_Result" />
+  </message>
+  <message name="GetDefaultDays">
+    <part name="parameters" element="tns:GetDefaultDays" />
+  </message>
+  <message name="GetDefaultDays_Result">
+    <part name="parameters" element="tns:GetDefaultDays_Result" />
+  </message>
+  <message name="GetDimensions">
+    <part name="parameters" element="tns:GetDimensions" />
+  </message>
+  <message name="GetDimensions_Result">
+    <part name="parameters" element="tns:GetDimensions_Result" />
+  </message>
+  <message name="GetDocResponsibilityCentres">
+    <part name="parameters" element="tns:GetDocResponsibilityCentres" />
+  </message>
+  <message name="GetDocResponsibilityCentres_Result">
+    <part name="parameters" element="tns:GetDocResponsibilityCentres_Result" />
+  </message>
+  <message name="GetEmployeeName">
+    <part name="parameters" element="tns:GetEmployeeName" />
+  </message>
+  <message name="GetEmployeeName_Result">
+    <part name="parameters" element="tns:GetEmployeeName_Result" />
+  </message>
+  <message name="GetEmployees">
+    <part name="parameters" element="tns:GetEmployees" />
+  </message>
+  <message name="GetEmployees_Result">
+    <part name="parameters" element="tns:GetEmployees_Result" />
+  </message>
+  <message name="GetGLAccounts">
+    <part name="parameters" element="tns:GetGLAccounts" />
+  </message>
+  <message name="GetGLAccounts_Result">
+    <part name="parameters" element="tns:GetGLAccounts_Result" />
+  </message>
+  <message name="GetImprestDetails">
+    <part name="parameters" element="tns:GetImprestDetails" />
+  </message>
+  <message name="GetImprestDetails_Result">
+    <part name="parameters" element="tns:GetImprestDetails_Result" />
+  </message>
+  <message name="GetImprestLines">
+    <part name="parameters" element="tns:GetImprestLines" />
+  </message>
+  <message name="GetImprestLines_Result">
+    <part name="parameters" element="tns:GetImprestLines_Result" />
+  </message>
+  <message name="GetImprestSurrenderResponsibilityCenter">
+    <part name="parameters" element="tns:GetImprestSurrenderResponsibilityCenter" />
+  </message>
+  <message name="GetImprestSurrenderResponsibilityCenter_Result">
+    <part name="parameters" element="tns:GetImprestSurrenderResponsibilityCenter_Result" />
+  </message>
+  <message name="GetItemQuantity">
+    <part name="parameters" element="tns:GetItemQuantity" />
+  </message>
+  <message name="GetItemQuantity_Result">
+    <part name="parameters" element="tns:GetItemQuantity_Result" />
+  </message>
+  <message name="GetLeaveDetails">
+    <part name="parameters" element="tns:GetLeaveDetails" />
+  </message>
+  <message name="GetLeaveDetails_Result">
+    <part name="parameters" element="tns:GetLeaveDetails_Result" />
+  </message>
+  <message name="GetLeaveRelieverDetails">
+    <part name="parameters" element="tns:GetLeaveRelieverDetails" />
+  </message>
+  <message name="GetLeaveRelieverDetails_Result">
+    <part name="parameters" element="tns:GetLeaveRelieverDetails_Result" />
+  </message>
+  <message name="GetLeaveTransactions">
+    <part name="parameters" element="tns:GetLeaveTransactions" />
+  </message>
+  <message name="GetLeaveTransactions_Result">
+    <part name="parameters" element="tns:GetLeaveTransactions_Result" />
+  </message>
+  <message name="GetLeaveTypes">
+    <part name="parameters" element="tns:GetLeaveTypes" />
+  </message>
+  <message name="GetLeaveTypes_Result">
+    <part name="parameters" element="tns:GetLeaveTypes_Result" />
+  </message>
+  <message name="GetMonthName">
+    <part name="parameters" element="tns:GetMonthName" />
+  </message>
+  <message name="GetMonthName_Result">
+    <part name="parameters" element="tns:GetMonthName_Result" />
+  </message>
+  <message name="GetMyAttachments">
+    <part name="parameters" element="tns:GetMyAttachments" />
+  </message>
+  <message name="GetMyAttachments_Result">
+    <part name="parameters" element="tns:GetMyAttachments_Result" />
+  </message>
+  <message name="GetMyClaims">
+    <part name="parameters" element="tns:GetMyClaims" />
+  </message>
+  <message name="GetMyClaims_Result">
+    <part name="parameters" element="tns:GetMyClaims_Result" />
+  </message>
+  <message name="GetMyImprestSurrenders">
+    <part name="parameters" element="tns:GetMyImprestSurrenders" />
+  </message>
+  <message name="GetMyImprestSurrenders_Result">
+    <part name="parameters" element="tns:GetMyImprestSurrenders_Result" />
+  </message>
+  <message name="GetMyImprests">
+    <part name="parameters" element="tns:GetMyImprests" />
+  </message>
+  <message name="GetMyImprests_Result">
+    <part name="parameters" element="tns:GetMyImprests_Result" />
+  </message>
+  <message name="GetMyPettyCashRequests">
+    <part name="parameters" element="tns:GetMyPettyCashRequests" />
+  </message>
+  <message name="GetMyPettyCashRequests_Result">
+    <part name="parameters" element="tns:GetMyPettyCashRequests_Result" />
+  </message>
+  <message name="GetMyPettyCashSurrenders">
+    <part name="parameters" element="tns:GetMyPettyCashSurrenders" />
+  </message>
+  <message name="GetMyPettyCashSurrenders_Result">
+    <part name="parameters" element="tns:GetMyPettyCashSurrenders_Result" />
+  </message>
+  <message name="GetMyStoresRequests">
+    <part name="parameters" element="tns:GetMyStoresRequests" />
+  </message>
+  <message name="GetMyStoresRequests_Result">
+    <part name="parameters" element="tns:GetMyStoresRequests_Result" />
+  </message>
+  <message name="GetMyleaveApplications">
+    <part name="parameters" element="tns:GetMyleaveApplications" />
+  </message>
+  <message name="GetMyleaveApplications_Result">
+    <part name="parameters" element="tns:GetMyleaveApplications_Result" />
+  </message>
+  <message name="GetNextImprestSurrenderNo">
+    <part name="parameters" element="tns:GetNextImprestSurrenderNo" />
+  </message>
+  <message name="GetNextImprestSurrenderNo_Result">
+    <part name="parameters" element="tns:GetNextImprestSurrenderNo_Result" />
+  </message>
+  <message name="GetNextPettyCashNo">
+    <part name="parameters" element="tns:GetNextPettyCashNo" />
+  </message>
+  <message name="GetNextPettyCashNo_Result">
+    <part name="parameters" element="tns:GetNextPettyCashNo_Result" />
+  </message>
+  <message name="GetPayslipMonths">
+    <part name="parameters" element="tns:GetPayslipMonths" />
+  </message>
+  <message name="GetPayslipMonths_Result">
+    <part name="parameters" element="tns:GetPayslipMonths_Result" />
+  </message>
+  <message name="GetPayslipYears">
+    <part name="parameters" element="tns:GetPayslipYears" />
+  </message>
+  <message name="GetPayslipYears_Result">
+    <part name="parameters" element="tns:GetPayslipYears_Result" />
+  </message>
+  <message name="GetPettyCashDetails">
+    <part name="parameters" element="tns:GetPettyCashDetails" />
+  </message>
+  <message name="GetPettyCashDetails_Result">
+    <part name="parameters" element="tns:GetPettyCashDetails_Result" />
+  </message>
+  <message name="GetPettyCashLines">
+    <part name="parameters" element="tns:GetPettyCashLines" />
+  </message>
+  <message name="GetPettyCashLines_Result">
+    <part name="parameters" element="tns:GetPettyCashLines_Result" />
+  </message>
+  <message name="GetPettyCashSurrenderDetails">
+    <part name="parameters" element="tns:GetPettyCashSurrenderDetails" />
+  </message>
+  <message name="GetPettyCashSurrenderDetails_Result">
+    <part name="parameters" element="tns:GetPettyCashSurrenderDetails_Result" />
+  </message>
+  <message name="GetPettyCashSurrenderLines">
+    <part name="parameters" element="tns:GetPettyCashSurrenderLines" />
+  </message>
+  <message name="GetPettyCashSurrenderLines_Result">
+    <part name="parameters" element="tns:GetPettyCashSurrenderLines_Result" />
+  </message>
+  <message name="GetPostedImprests">
+    <part name="parameters" element="tns:GetPostedImprests" />
+  </message>
+  <message name="GetPostedImprests_Result">
+    <part name="parameters" element="tns:GetPostedImprests_Result" />
+  </message>
+  <message name="GetQuantityInStore">
+    <part name="parameters" element="tns:GetQuantityInStore" />
+  </message>
+  <message name="GetQuantityInStore_Result">
+    <part name="parameters" element="tns:GetQuantityInStore_Result" />
+  </message>
+  <message name="GetReceiptAmount">
+    <part name="parameters" element="tns:GetReceiptAmount" />
+  </message>
+  <message name="GetReceiptAmount_Result">
+    <part name="parameters" element="tns:GetReceiptAmount_Result" />
+  </message>
+  <message name="GetRelieverDetails">
+    <part name="parameters" element="tns:GetRelieverDetails" />
+  </message>
+  <message name="GetRelieverDetails_Result">
+    <part name="parameters" element="tns:GetRelieverDetails_Result" />
+  </message>
+  <message name="GetRelieverEmail">
+    <part name="parameters" element="tns:GetRelieverEmail" />
+  </message>
+  <message name="GetRelieverEmail_Result">
+    <part name="parameters" element="tns:GetRelieverEmail_Result" />
+  </message>
+  <message name="GetStaffCitizenship">
+    <part name="parameters" element="tns:GetStaffCitizenship" />
+  </message>
+  <message name="GetStaffCitizenship_Result">
+    <part name="parameters" element="tns:GetStaffCitizenship_Result" />
+  </message>
+  <message name="GetStaffDepartmentDetails">
+    <part name="parameters" element="tns:GetStaffDepartmentDetails" />
+  </message>
+  <message name="GetStaffDepartmentDetails_Result">
+    <part name="parameters" element="tns:GetStaffDepartmentDetails_Result" />
+  </message>
+  <message name="GetStaffDetails">
+    <part name="parameters" element="tns:GetStaffDetails" />
+  </message>
+  <message name="GetStaffDetails_Result">
+    <part name="parameters" element="tns:GetStaffDetails_Result" />
+  </message>
+  <message name="GetStaffEmail">
+    <part name="parameters" element="tns:GetStaffEmail" />
+  </message>
+  <message name="GetStaffEmail_Result">
+    <part name="parameters" element="tns:GetStaffEmail_Result" />
+  </message>
+  <message name="GetStaffGender">
+    <part name="parameters" element="tns:GetStaffGender" />
+  </message>
+  <message name="GetStaffGender_Result">
+    <part name="parameters" element="tns:GetStaffGender_Result" />
+  </message>
+  <message name="GetStaffPassword">
+    <part name="parameters" element="tns:GetStaffPassword" />
+  </message>
+  <message name="GetStaffPassword_Result">
+    <part name="parameters" element="tns:GetStaffPassword_Result" />
+  </message>
+  <message name="GetStaffPettyCashNo">
+    <part name="parameters" element="tns:GetStaffPettyCashNo" />
+  </message>
+  <message name="GetStaffPettyCashNo_Result">
+    <part name="parameters" element="tns:GetStaffPettyCashNo_Result" />
+  </message>
+  <message name="GetStoreItemQuantity">
+    <part name="parameters" element="tns:GetStoreItemQuantity" />
+  </message>
+  <message name="GetStoreItemQuantity_Result">
+    <part name="parameters" element="tns:GetStoreItemQuantity_Result" />
+  </message>
+  <message name="GetTotalImprestAmount">
+    <part name="parameters" element="tns:GetTotalImprestAmount" />
+  </message>
+  <message name="GetTotalImprestAmount_Result">
+    <part name="parameters" element="tns:GetTotalImprestAmount_Result" />
+  </message>
+  <message name="GetTotalImprestSurrenderAmount">
+    <part name="parameters" element="tns:GetTotalImprestSurrenderAmount" />
+  </message>
+  <message name="GetTotalImprestSurrenderAmount_Result">
+    <part name="parameters" element="tns:GetTotalImprestSurrenderAmount_Result" />
+  </message>
+  <message name="HRMLeaveApplication1">
+    <part name="parameters" element="tns:HRMLeaveApplication1" />
+  </message>
+  <message name="HRMLeaveApplication1_Result">
+    <part name="parameters" element="tns:HRMLeaveApplication1_Result" />
+  </message>
+  <message name="HRMLeaveApplication">
+    <part name="parameters" element="tns:HRMLeaveApplication" />
+  </message>
+  <message name="HRMLeaveApplication_Result">
+    <part name="parameters" element="tns:HRMLeaveApplication_Result" />
+  </message>
+  <message name="HRMTrainingApplication">
+    <part name="parameters" element="tns:HRMTrainingApplication" />
+  </message>
+  <message name="HRMTrainingApplication_Result">
+    <part name="parameters" element="tns:HRMTrainingApplication_Result" />
+  </message>
+  <message name="HasPendingLeaveApplication">
+    <part name="parameters" element="tns:HasPendingLeaveApplication" />
+  </message>
+  <message name="HasPendingLeaveApplication_Result">
+    <part name="parameters" element="tns:HasPendingLeaveApplication_Result" />
+  </message>
+  <message name="HasPendingPettyCash">
+    <part name="parameters" element="tns:HasPendingPettyCash" />
+  </message>
+  <message name="HasPendingPettyCash_Result">
+    <part name="parameters" element="tns:HasPendingPettyCash_Result" />
+  </message>
+  <portType name="Staffportall_Port">
+    <operation name="InsertClaimRequisitionLines">
+      <input name="InsertClaimRequisitionLines" message="tns:InsertClaimRequisitionLines" />
+      <output name="InsertClaimRequisitionLines_Result" message="tns:InsertClaimRequisitionLines_Result" />
+    </operation>
+    <operation name="InsertHRMTrainingParticipants">
+      <input name="InsertHRMTrainingParticipants" message="tns:InsertHRMTrainingParticipants" />
+      <output name="InsertHRMTrainingParticipants_Result" message="tns:InsertHRMTrainingParticipants_Result" />
+    </operation>
+    <operation name="InsertImprestRequisitonLines">
+      <input name="InsertImprestRequisitonLines" message="tns:InsertImprestRequisitonLines" />
+      <output name="InsertImprestRequisitonLines_Result" message="tns:InsertImprestRequisitonLines_Result" />
+    </operation>
+    <operation name="InsertImprestSurrenderLines">
+      <input name="InsertImprestSurrenderLines" message="tns:InsertImprestSurrenderLines" />
+      <output name="InsertImprestSurrenderLines_Result" message="tns:InsertImprestSurrenderLines_Result" />
+    </operation>
+    <operation name="InsertPettyCashRequisitionLine">
+      <input name="InsertPettyCashRequisitionLine" message="tns:InsertPettyCashRequisitionLine" />
+      <output name="InsertPettyCashRequisitionLine_Result" message="tns:InsertPettyCashRequisitionLine_Result" />
+    </operation>
+    <operation name="InsertPettyCashSurrenderLines">
+      <input name="InsertPettyCashSurrenderLines" message="tns:InsertPettyCashSurrenderLines" />
+      <output name="InsertPettyCashSurrenderLines_Result" message="tns:InsertPettyCashSurrenderLines_Result" />
+    </operation>
+    <operation name="InsertStoreRequisitionLines">
+      <input name="InsertStoreRequisitionLines" message="tns:InsertStoreRequisitionLines" />
+      <output name="InsertStoreRequisitionLines_Result" message="tns:InsertStoreRequisitionLines_Result" />
+    </operation>
+    <operation name="IsLeaveAnnual">
+      <input name="IsLeaveAnnual" message="tns:IsLeaveAnnual" />
+      <output name="IsLeaveAnnual_Result" message="tns:IsLeaveAnnual_Result" />
+    </operation>
+    <operation name="LoadImprestSurrenderLineDetails">
+      <input name="LoadImprestSurrenderLineDetails" message="tns:LoadImprestSurrenderLineDetails" />
+      <output name="LoadImprestSurrenderLineDetails_Result" message="tns:LoadImprestSurrenderLineDetails_Result" />
+    </operation>
+    <operation name="LoadPettyCashSurrenderSurrenderLineDetails">
+      <input name="LoadPettyCashSurrenderSurrenderLineDetails" message="tns:LoadPettyCashSurrenderSurrenderLineDetails" />
+      <output name="LoadPettyCashSurrenderSurrenderLineDetails_Result" message="tns:LoadPettyCashSurrenderSurrenderLineDetails_Result" />
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <input name="LoginForUnchangedPassword" message="tns:LoginForUnchangedPassword" />
+      <output name="LoginForUnchangedPassword_Result" message="tns:LoginForUnchangedPassword_Result" />
+    </operation>
+    <operation name="OnCancelClaimRequisition">
+      <input name="OnCancelClaimRequisition" message="tns:OnCancelClaimRequisition" />
+      <output name="OnCancelClaimRequisition_Result" message="tns:OnCancelClaimRequisition_Result" />
+    </operation>
+    <operation name="OnCancelImprestRequisition">
+      <input name="OnCancelImprestRequisition" message="tns:OnCancelImprestRequisition" />
+      <output name="OnCancelImprestRequisition_Result" message="tns:OnCancelImprestRequisition_Result" />
+    </operation>
+    <operation name="OnCancelImprestSurrender">
+      <input name="OnCancelImprestSurrender" message="tns:OnCancelImprestSurrender" />
+      <output name="OnCancelImprestSurrender_Result" message="tns:OnCancelImprestSurrender_Result" />
+    </operation>
+    <operation name="OnCancelLeaveApplication">
+      <input name="OnCancelLeaveApplication" message="tns:OnCancelLeaveApplication" />
+      <output name="OnCancelLeaveApplication_Result" message="tns:OnCancelLeaveApplication_Result" />
+    </operation>
+    <operation name="OnCancelPettyCashRequisition">
+      <input name="OnCancelPettyCashRequisition" message="tns:OnCancelPettyCashRequisition" />
+      <output name="OnCancelPettyCashRequisition_Result" message="tns:OnCancelPettyCashRequisition_Result" />
+    </operation>
+    <operation name="OnCancelPettyCashSurrender">
+      <input name="OnCancelPettyCashSurrender" message="tns:OnCancelPettyCashSurrender" />
+      <output name="OnCancelPettyCashSurrender_Result" message="tns:OnCancelPettyCashSurrender_Result" />
+    </operation>
+    <operation name="OnCancelStoreRequisitionApproval">
+      <input name="OnCancelStoreRequisitionApproval" message="tns:OnCancelStoreRequisitionApproval" />
+      <output name="OnCancelStoreRequisitionApproval_Result" message="tns:OnCancelStoreRequisitionApproval_Result" />
+    </operation>
+    <operation name="OnSendClaimRequisitionForApproval">
+      <input name="OnSendClaimRequisitionForApproval" message="tns:OnSendClaimRequisitionForApproval" />
+      <output name="OnSendClaimRequisitionForApproval_Result" message="tns:OnSendClaimRequisitionForApproval_Result" />
+    </operation>
+    <operation name="OnSendImprestRequisitionForApproval">
+      <input name="OnSendImprestRequisitionForApproval" message="tns:OnSendImprestRequisitionForApproval" />
+      <output name="OnSendImprestRequisitionForApproval_Result" message="tns:OnSendImprestRequisitionForApproval_Result" />
+    </operation>
+    <operation name="OnSendImprestSurrenderForApproval">
+      <input name="OnSendImprestSurrenderForApproval" message="tns:OnSendImprestSurrenderForApproval" />
+      <output name="OnSendImprestSurrenderForApproval_Result" message="tns:OnSendImprestSurrenderForApproval_Result" />
+    </operation>
+    <operation name="OnSendPettyCashRequisitionForApproval">
+      <input name="OnSendPettyCashRequisitionForApproval" message="tns:OnSendPettyCashRequisitionForApproval" />
+      <output name="OnSendPettyCashRequisitionForApproval_Result" message="tns:OnSendPettyCashRequisitionForApproval_Result" />
+    </operation>
+    <operation name="OnSendPettyCashSurrenderForApproval">
+      <input name="OnSendPettyCashSurrenderForApproval" message="tns:OnSendPettyCashSurrenderForApproval" />
+      <output name="OnSendPettyCashSurrenderForApproval_Result" message="tns:OnSendPettyCashSurrenderForApproval_Result" />
+    </operation>
+    <operation name="OnSendStoreRequisitionForApproval">
+      <input name="OnSendStoreRequisitionForApproval" message="tns:OnSendStoreRequisitionForApproval" />
+      <output name="OnSendStoreRequisitionForApproval_Result" message="tns:OnSendStoreRequisitionForApproval_Result" />
+    </operation>
+    <operation name="OnsendLeaveRequisitionForApproval">
+      <input name="OnsendLeaveRequisitionForApproval" message="tns:OnsendLeaveRequisitionForApproval" />
+      <output name="OnsendLeaveRequisitionForApproval_Result" message="tns:OnsendLeaveRequisitionForApproval_Result" />
+    </operation>
+    <operation name="RegFileUploadAtt1">
+      <input name="RegFileUploadAtt1" message="tns:RegFileUploadAtt1" />
+      <output name="RegFileUploadAtt1_Result" message="tns:RegFileUploadAtt1_Result" />
+    </operation>
+    <operation name="RegFileUploadAtt">
+      <input name="RegFileUploadAtt" message="tns:RegFileUploadAtt" />
+      <output name="RegFileUploadAtt_Result" message="tns:RegFileUploadAtt_Result" />
+    </operation>
+    <operation name="RemoveAttachment">
+      <input name="RemoveAttachment" message="tns:RemoveAttachment" />
+      <output name="RemoveAttachment_Result" message="tns:RemoveAttachment_Result" />
+    </operation>
+    <operation name="RemoveClaimRequisitionLines">
+      <input name="RemoveClaimRequisitionLines" message="tns:RemoveClaimRequisitionLines" />
+      <output name="RemoveClaimRequisitionLines_Result" message="tns:RemoveClaimRequisitionLines_Result" />
+    </operation>
+    <operation name="RemoveHRMTrainingParticipant">
+      <input name="RemoveHRMTrainingParticipant" message="tns:RemoveHRMTrainingParticipant" />
+      <output name="RemoveHRMTrainingParticipant_Result" message="tns:RemoveHRMTrainingParticipant_Result" />
+    </operation>
+    <operation name="RemoveImprestRequisitionLine">
+      <input name="RemoveImprestRequisitionLine" message="tns:RemoveImprestRequisitionLine" />
+      <output name="RemoveImprestRequisitionLine_Result" message="tns:RemoveImprestRequisitionLine_Result" />
+    </operation>
+    <operation name="RemovePettyCashRequisitionLine">
+      <input name="RemovePettyCashRequisitionLine" message="tns:RemovePettyCashRequisitionLine" />
+      <output name="RemovePettyCashRequisitionLine_Result" message="tns:RemovePettyCashRequisitionLine_Result" />
+    </operation>
+    <operation name="SaveMemoAttchmnts">
+      <input name="SaveMemoAttchmnts" message="tns:SaveMemoAttchmnts" />
+      <output name="SaveMemoAttchmnts_Result" message="tns:SaveMemoAttchmnts_Result" />
+    </operation>
+    <operation name="StaffLogin">
+      <input name="StaffLogin" message="tns:StaffLogin" />
+      <output name="StaffLogin_Result" message="tns:StaffLogin_Result" />
+    </operation>
+    <operation name="UpdateImprestHeader">
+      <input name="UpdateImprestHeader" message="tns:UpdateImprestHeader" />
+      <output name="UpdateImprestHeader_Result" message="tns:UpdateImprestHeader_Result" />
+    </operation>
+    <operation name="UpdatePettyCashHeader">
+      <input name="UpdatePettyCashHeader" message="tns:UpdatePettyCashHeader" />
+      <output name="UpdatePettyCashHeader_Result" message="tns:UpdatePettyCashHeader_Result" />
+    </operation>
+    <operation name="UpdatePettyCashSurrenderHeader">
+      <input name="UpdatePettyCashSurrenderHeader" message="tns:UpdatePettyCashSurrenderHeader" />
+      <output name="UpdatePettyCashSurrenderHeader_Result" message="tns:UpdatePettyCashSurrenderHeader_Result" />
+    </operation>
+    <operation name="UpdatePettyCashSurrenderLines1">
+      <input name="UpdatePettyCashSurrenderLines1" message="tns:UpdatePettyCashSurrenderLines1" />
+      <output name="UpdatePettyCashSurrenderLines1_Result" message="tns:UpdatePettyCashSurrenderLines1_Result" />
+    </operation>
+    <operation name="UpdatePettyCashSurrenderLines">
+      <input name="UpdatePettyCashSurrenderLines" message="tns:UpdatePettyCashSurrenderLines" />
+      <output name="UpdatePettyCashSurrenderLines_Result" message="tns:UpdatePettyCashSurrenderLines_Result" />
+    </operation>
+    <operation name="UpdateStaffPassword">
+      <input name="UpdateStaffPassword" message="tns:UpdateStaffPassword" />
+      <output name="UpdateStaffPassword_Result" message="tns:UpdateStaffPassword_Result" />
+    </operation>
+    <operation name="UploadDocument">
+      <input name="UploadDocument" message="tns:UploadDocument" />
+      <output name="UploadDocument_Result" message="tns:UploadDocument_Result" />
+    </operation>
+    <operation name="ValidateStartDate">
+      <input name="ValidateStartDate" message="tns:ValidateStartDate" />
+      <output name="ValidateStartDate_Result" message="tns:ValidateStartDate_Result" />
+    </operation>
+    <operation name="getEmployeeUserId">
+      <input name="getEmployeeUserId" message="tns:getEmployeeUserId" />
+      <output name="getEmployeeUserId_Result" message="tns:getEmployeeUserId_Result" />
+    </operation>
+    <operation name="AvailableLeaveDays1">
+      <input name="AvailableLeaveDays1" message="tns:AvailableLeaveDays1" />
+      <output name="AvailableLeaveDays1_Result" message="tns:AvailableLeaveDays1_Result" />
+    </operation>
+    <operation name="AvailableLeaveDays">
+      <input name="AvailableLeaveDays" message="tns:AvailableLeaveDays" />
+      <output name="AvailableLeaveDays_Result" message="tns:AvailableLeaveDays_Result" />
+    </operation>
+    <operation name="AvailableLeaveDayss">
+      <input name="AvailableLeaveDayss" message="tns:AvailableLeaveDayss" />
+      <output name="AvailableLeaveDayss_Result" message="tns:AvailableLeaveDayss_Result" />
+    </operation>
+    <operation name="CalcEndDate">
+      <input name="CalcEndDate" message="tns:CalcEndDate" />
+      <output name="CalcEndDate_Result" message="tns:CalcEndDate_Result" />
+    </operation>
+    <operation name="CalcReturnDate">
+      <input name="CalcReturnDate" message="tns:CalcReturnDate" />
+      <output name="CalcReturnDate_Result" message="tns:CalcReturnDate_Result" />
+    </operation>
+    <operation name="CheckStaffPasswordChanged">
+      <input name="CheckStaffPasswordChanged" message="tns:CheckStaffPasswordChanged" />
+      <output name="CheckStaffPasswordChanged_Result" message="tns:CheckStaffPasswordChanged_Result" />
+    </operation>
+    <operation name="CheckValidStaffNo">
+      <input name="CheckValidStaffNo" message="tns:CheckValidStaffNo" />
+      <output name="CheckValidStaffNo_Result" message="tns:CheckValidStaffNo_Result" />
+    </operation>
+    <operation name="CreateClaimRequisitionHeader">
+      <input name="CreateClaimRequisitionHeader" message="tns:CreateClaimRequisitionHeader" />
+      <output name="CreateClaimRequisitionHeader_Result" message="tns:CreateClaimRequisitionHeader_Result" />
+    </operation>
+    <operation name="CreateImprestRequisitionHeader">
+      <input name="CreateImprestRequisitionHeader" message="tns:CreateImprestRequisitionHeader" />
+      <output name="CreateImprestRequisitionHeader_Result" message="tns:CreateImprestRequisitionHeader_Result" />
+    </operation>
+    <operation name="CreateImprestSurrenderHeader">
+      <input name="CreateImprestSurrenderHeader" message="tns:CreateImprestSurrenderHeader" />
+      <output name="CreateImprestSurrenderHeader_Result" message="tns:CreateImprestSurrenderHeader_Result" />
+    </operation>
+    <operation name="CreatePettyCashRequisitionHeader">
+      <input name="CreatePettyCashRequisitionHeader" message="tns:CreatePettyCashRequisitionHeader" />
+      <output name="CreatePettyCashRequisitionHeader_Result" message="tns:CreatePettyCashRequisitionHeader_Result" />
+    </operation>
+    <operation name="CreatePettyCashSurrenderHeader">
+      <input name="CreatePettyCashSurrenderHeader" message="tns:CreatePettyCashSurrenderHeader" />
+      <output name="CreatePettyCashSurrenderHeader_Result" message="tns:CreatePettyCashSurrenderHeader_Result" />
+    </operation>
+    <operation name="CreateStoreRequisitionHeader">
+      <input name="CreateStoreRequisitionHeader" message="tns:CreateStoreRequisitionHeader" />
+      <output name="CreateStoreRequisitionHeader_Result" message="tns:CreateStoreRequisitionHeader_Result" />
+    </operation>
+    <operation name="DeleteDocumentAttachment">
+      <input name="DeleteDocumentAttachment" message="tns:DeleteDocumentAttachment" />
+      <output name="DeleteDocumentAttachment_Result" message="tns:DeleteDocumentAttachment_Result" />
+    </operation>
+    <operation name="DeleteStoreLine">
+      <input name="DeleteStoreLine" message="tns:DeleteStoreLine" />
+      <output name="DeleteStoreLine_Result" message="tns:DeleteStoreLine_Result" />
+    </operation>
+    <operation name="DetermineIfIncludesNonWorking">
+      <input name="DetermineIfIncludesNonWorking" message="tns:DetermineIfIncludesNonWorking" />
+      <output name="DetermineIfIncludesNonWorking_Result" message="tns:DetermineIfIncludesNonWorking_Result" />
+    </operation>
+    <operation name="DetermineIfIsNonWorking">
+      <input name="DetermineIfIsNonWorking" message="tns:DetermineIfIsNonWorking" />
+      <output name="DetermineIfIsNonWorking_Result" message="tns:DetermineIfIsNonWorking_Result" />
+    </operation>
+    <operation name="DetermineLeaveReturnDate">
+      <input name="DetermineLeaveReturnDate" message="tns:DetermineLeaveReturnDate" />
+      <output name="DetermineLeaveReturnDate_Result" message="tns:DetermineLeaveReturnDate_Result" />
+    </operation>
+    <operation name="GenerateMemoReport">
+      <input name="GenerateMemoReport" message="tns:GenerateMemoReport" />
+      <output name="GenerateMemoReport_Result" message="tns:GenerateMemoReport_Result" />
+    </operation>
+    <operation name="GeneratePayslipReport">
+      <input name="GeneratePayslipReport" message="tns:GeneratePayslipReport" />
+      <output name="GeneratePayslipReport_Result" message="tns:GeneratePayslipReport_Result" />
+    </operation>
+    <operation name="GenerateStaffLeaveStatement">
+      <input name="GenerateStaffLeaveStatement" message="tns:GenerateStaffLeaveStatement" />
+      <output name="GenerateStaffLeaveStatement_Result" message="tns:GenerateStaffLeaveStatement_Result" />
+    </operation>
+    <operation name="Generatep9Report">
+      <input name="Generatep9Report" message="tns:Generatep9Report" />
+      <output name="Generatep9Report_Result" message="tns:Generatep9Report_Result" />
+    </operation>
+    <operation name="GetAdvancetype">
+      <input name="GetAdvancetype" message="tns:GetAdvancetype" />
+      <output name="GetAdvancetype_Result" message="tns:GetAdvancetype_Result" />
+    </operation>
+    <operation name="GetApprovalEntries">
+      <input name="GetApprovalEntries" message="tns:GetApprovalEntries" />
+      <output name="GetApprovalEntries_Result" message="tns:GetApprovalEntries_Result" />
+    </operation>
+    <operation name="GetAttachmentDetails">
+      <input name="GetAttachmentDetails" message="tns:GetAttachmentDetails" />
+      <output name="GetAttachmentDetails_Result" message="tns:GetAttachmentDetails_Result" />
+    </operation>
+    <operation name="GetClaimLines">
+      <input name="GetClaimLines" message="tns:GetClaimLines" />
+      <output name="GetClaimLines_Result" message="tns:GetClaimLines_Result" />
+    </operation>
+    <operation name="GetClaimTypes">
+      <input name="GetClaimTypes" message="tns:GetClaimTypes" />
+      <output name="GetClaimTypes_Result" message="tns:GetClaimTypes_Result" />
+    </operation>
+    <operation name="GetCustomers">
+      <input name="GetCustomers" message="tns:GetCustomers" />
+      <output name="GetCustomers_Result" message="tns:GetCustomers_Result" />
+    </operation>
+    <operation name="GetDefaultDays">
+      <input name="GetDefaultDays" message="tns:GetDefaultDays" />
+      <output name="GetDefaultDays_Result" message="tns:GetDefaultDays_Result" />
+    </operation>
+    <operation name="GetDimensions">
+      <input name="GetDimensions" message="tns:GetDimensions" />
+      <output name="GetDimensions_Result" message="tns:GetDimensions_Result" />
+    </operation>
+    <operation name="GetDocResponsibilityCentres">
+      <input name="GetDocResponsibilityCentres" message="tns:GetDocResponsibilityCentres" />
+      <output name="GetDocResponsibilityCentres_Result" message="tns:GetDocResponsibilityCentres_Result" />
+    </operation>
+    <operation name="GetEmployeeName">
+      <input name="GetEmployeeName" message="tns:GetEmployeeName" />
+      <output name="GetEmployeeName_Result" message="tns:GetEmployeeName_Result" />
+    </operation>
+    <operation name="GetEmployees">
+      <input name="GetEmployees" message="tns:GetEmployees" />
+      <output name="GetEmployees_Result" message="tns:GetEmployees_Result" />
+    </operation>
+    <operation name="GetGLAccounts">
+      <input name="GetGLAccounts" message="tns:GetGLAccounts" />
+      <output name="GetGLAccounts_Result" message="tns:GetGLAccounts_Result" />
+    </operation>
+    <operation name="GetImprestDetails">
+      <input name="GetImprestDetails" message="tns:GetImprestDetails" />
+      <output name="GetImprestDetails_Result" message="tns:GetImprestDetails_Result" />
+    </operation>
+    <operation name="GetImprestLines">
+      <input name="GetImprestLines" message="tns:GetImprestLines" />
+      <output name="GetImprestLines_Result" message="tns:GetImprestLines_Result" />
+    </operation>
+    <operation name="GetImprestSurrenderResponsibilityCenter">
+      <input name="GetImprestSurrenderResponsibilityCenter" message="tns:GetImprestSurrenderResponsibilityCenter" />
+      <output name="GetImprestSurrenderResponsibilityCenter_Result" message="tns:GetImprestSurrenderResponsibilityCenter_Result" />
+    </operation>
+    <operation name="GetItemQuantity">
+      <input name="GetItemQuantity" message="tns:GetItemQuantity" />
+      <output name="GetItemQuantity_Result" message="tns:GetItemQuantity_Result" />
+    </operation>
+    <operation name="GetLeaveDetails">
+      <input name="GetLeaveDetails" message="tns:GetLeaveDetails" />
+      <output name="GetLeaveDetails_Result" message="tns:GetLeaveDetails_Result" />
+    </operation>
+    <operation name="GetLeaveRelieverDetails">
+      <input name="GetLeaveRelieverDetails" message="tns:GetLeaveRelieverDetails" />
+      <output name="GetLeaveRelieverDetails_Result" message="tns:GetLeaveRelieverDetails_Result" />
+    </operation>
+    <operation name="GetLeaveTransactions">
+      <input name="GetLeaveTransactions" message="tns:GetLeaveTransactions" />
+      <output name="GetLeaveTransactions_Result" message="tns:GetLeaveTransactions_Result" />
+    </operation>
+    <operation name="GetLeaveTypes">
+      <input name="GetLeaveTypes" message="tns:GetLeaveTypes" />
+      <output name="GetLeaveTypes_Result" message="tns:GetLeaveTypes_Result" />
+    </operation>
+    <operation name="GetMonthName">
+      <input name="GetMonthName" message="tns:GetMonthName" />
+      <output name="GetMonthName_Result" message="tns:GetMonthName_Result" />
+    </operation>
+    <operation name="GetMyAttachments">
+      <input name="GetMyAttachments" message="tns:GetMyAttachments" />
+      <output name="GetMyAttachments_Result" message="tns:GetMyAttachments_Result" />
+    </operation>
+    <operation name="GetMyClaims">
+      <input name="GetMyClaims" message="tns:GetMyClaims" />
+      <output name="GetMyClaims_Result" message="tns:GetMyClaims_Result" />
+    </operation>
+    <operation name="GetMyImprestSurrenders">
+      <input name="GetMyImprestSurrenders" message="tns:GetMyImprestSurrenders" />
+      <output name="GetMyImprestSurrenders_Result" message="tns:GetMyImprestSurrenders_Result" />
+    </operation>
+    <operation name="GetMyImprests">
+      <input name="GetMyImprests" message="tns:GetMyImprests" />
+      <output name="GetMyImprests_Result" message="tns:GetMyImprests_Result" />
+    </operation>
+    <operation name="GetMyPettyCashRequests">
+      <input name="GetMyPettyCashRequests" message="tns:GetMyPettyCashRequests" />
+      <output name="GetMyPettyCashRequests_Result" message="tns:GetMyPettyCashRequests_Result" />
+    </operation>
+    <operation name="GetMyPettyCashSurrenders">
+      <input name="GetMyPettyCashSurrenders" message="tns:GetMyPettyCashSurrenders" />
+      <output name="GetMyPettyCashSurrenders_Result" message="tns:GetMyPettyCashSurrenders_Result" />
+    </operation>
+    <operation name="GetMyStoresRequests">
+      <input name="GetMyStoresRequests" message="tns:GetMyStoresRequests" />
+      <output name="GetMyStoresRequests_Result" message="tns:GetMyStoresRequests_Result" />
+    </operation>
+    <operation name="GetMyleaveApplications">
+      <input name="GetMyleaveApplications" message="tns:GetMyleaveApplications" />
+      <output name="GetMyleaveApplications_Result" message="tns:GetMyleaveApplications_Result" />
+    </operation>
+    <operation name="GetNextImprestSurrenderNo">
+      <input name="GetNextImprestSurrenderNo" message="tns:GetNextImprestSurrenderNo" />
+      <output name="GetNextImprestSurrenderNo_Result" message="tns:GetNextImprestSurrenderNo_Result" />
+    </operation>
+    <operation name="GetNextPettyCashNo">
+      <input name="GetNextPettyCashNo" message="tns:GetNextPettyCashNo" />
+      <output name="GetNextPettyCashNo_Result" message="tns:GetNextPettyCashNo_Result" />
+    </operation>
+    <operation name="GetPayslipMonths">
+      <input name="GetPayslipMonths" message="tns:GetPayslipMonths" />
+      <output name="GetPayslipMonths_Result" message="tns:GetPayslipMonths_Result" />
+    </operation>
+    <operation name="GetPayslipYears">
+      <input name="GetPayslipYears" message="tns:GetPayslipYears" />
+      <output name="GetPayslipYears_Result" message="tns:GetPayslipYears_Result" />
+    </operation>
+    <operation name="GetPettyCashDetails">
+      <input name="GetPettyCashDetails" message="tns:GetPettyCashDetails" />
+      <output name="GetPettyCashDetails_Result" message="tns:GetPettyCashDetails_Result" />
+    </operation>
+    <operation name="GetPettyCashLines">
+      <input name="GetPettyCashLines" message="tns:GetPettyCashLines" />
+      <output name="GetPettyCashLines_Result" message="tns:GetPettyCashLines_Result" />
+    </operation>
+    <operation name="GetPettyCashSurrenderDetails">
+      <input name="GetPettyCashSurrenderDetails" message="tns:GetPettyCashSurrenderDetails" />
+      <output name="GetPettyCashSurrenderDetails_Result" message="tns:GetPettyCashSurrenderDetails_Result" />
+    </operation>
+    <operation name="GetPettyCashSurrenderLines">
+      <input name="GetPettyCashSurrenderLines" message="tns:GetPettyCashSurrenderLines" />
+      <output name="GetPettyCashSurrenderLines_Result" message="tns:GetPettyCashSurrenderLines_Result" />
+    </operation>
+    <operation name="GetPostedImprests">
+      <input name="GetPostedImprests" message="tns:GetPostedImprests" />
+      <output name="GetPostedImprests_Result" message="tns:GetPostedImprests_Result" />
+    </operation>
+    <operation name="GetQuantityInStore">
+      <input name="GetQuantityInStore" message="tns:GetQuantityInStore" />
+      <output name="GetQuantityInStore_Result" message="tns:GetQuantityInStore_Result" />
+    </operation>
+    <operation name="GetReceiptAmount">
+      <input name="GetReceiptAmount" message="tns:GetReceiptAmount" />
+      <output name="GetReceiptAmount_Result" message="tns:GetReceiptAmount_Result" />
+    </operation>
+    <operation name="GetRelieverDetails">
+      <input name="GetRelieverDetails" message="tns:GetRelieverDetails" />
+      <output name="GetRelieverDetails_Result" message="tns:GetRelieverDetails_Result" />
+    </operation>
+    <operation name="GetRelieverEmail">
+      <input name="GetRelieverEmail" message="tns:GetRelieverEmail" />
+      <output name="GetRelieverEmail_Result" message="tns:GetRelieverEmail_Result" />
+    </operation>
+    <operation name="GetStaffCitizenship">
+      <input name="GetStaffCitizenship" message="tns:GetStaffCitizenship" />
+      <output name="GetStaffCitizenship_Result" message="tns:GetStaffCitizenship_Result" />
+    </operation>
+    <operation name="GetStaffDepartmentDetails">
+      <input name="GetStaffDepartmentDetails" message="tns:GetStaffDepartmentDetails" />
+      <output name="GetStaffDepartmentDetails_Result" message="tns:GetStaffDepartmentDetails_Result" />
+    </operation>
+    <operation name="GetStaffDetails">
+      <input name="GetStaffDetails" message="tns:GetStaffDetails" />
+      <output name="GetStaffDetails_Result" message="tns:GetStaffDetails_Result" />
+    </operation>
+    <operation name="GetStaffEmail">
+      <input name="GetStaffEmail" message="tns:GetStaffEmail" />
+      <output name="GetStaffEmail_Result" message="tns:GetStaffEmail_Result" />
+    </operation>
+    <operation name="GetStaffGender">
+      <input name="GetStaffGender" message="tns:GetStaffGender" />
+      <output name="GetStaffGender_Result" message="tns:GetStaffGender_Result" />
+    </operation>
+    <operation name="GetStaffPassword">
+      <input name="GetStaffPassword" message="tns:GetStaffPassword" />
+      <output name="GetStaffPassword_Result" message="tns:GetStaffPassword_Result" />
+    </operation>
+    <operation name="GetStaffPettyCashNo">
+      <input name="GetStaffPettyCashNo" message="tns:GetStaffPettyCashNo" />
+      <output name="GetStaffPettyCashNo_Result" message="tns:GetStaffPettyCashNo_Result" />
+    </operation>
+    <operation name="GetStoreItemQuantity">
+      <input name="GetStoreItemQuantity" message="tns:GetStoreItemQuantity" />
+      <output name="GetStoreItemQuantity_Result" message="tns:GetStoreItemQuantity_Result" />
+    </operation>
+    <operation name="GetTotalImprestAmount">
+      <input name="GetTotalImprestAmount" message="tns:GetTotalImprestAmount" />
+      <output name="GetTotalImprestAmount_Result" message="tns:GetTotalImprestAmount_Result" />
+    </operation>
+    <operation name="GetTotalImprestSurrenderAmount">
+      <input name="GetTotalImprestSurrenderAmount" message="tns:GetTotalImprestSurrenderAmount" />
+      <output name="GetTotalImprestSurrenderAmount_Result" message="tns:GetTotalImprestSurrenderAmount_Result" />
+    </operation>
+    <operation name="HRMLeaveApplication1">
+      <input name="HRMLeaveApplication1" message="tns:HRMLeaveApplication1" />
+      <output name="HRMLeaveApplication1_Result" message="tns:HRMLeaveApplication1_Result" />
+    </operation>
+    <operation name="HRMLeaveApplication">
+      <input name="HRMLeaveApplication" message="tns:HRMLeaveApplication" />
+      <output name="HRMLeaveApplication_Result" message="tns:HRMLeaveApplication_Result" />
+    </operation>
+    <operation name="HRMTrainingApplication">
+      <input name="HRMTrainingApplication" message="tns:HRMTrainingApplication" />
+      <output name="HRMTrainingApplication_Result" message="tns:HRMTrainingApplication_Result" />
+    </operation>
+    <operation name="HasPendingLeaveApplication">
+      <input name="HasPendingLeaveApplication" message="tns:HasPendingLeaveApplication" />
+      <output name="HasPendingLeaveApplication_Result" message="tns:HasPendingLeaveApplication_Result" />
+    </operation>
+    <operation name="HasPendingPettyCash">
+      <input name="HasPendingPettyCash" message="tns:HasPendingPettyCash" />
+      <output name="HasPendingPettyCash_Result" message="tns:HasPendingPettyCash_Result" />
+    </operation>
+  </portType>
+  <binding name="Staffportall_Binding" type="tns:Staffportall_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="InsertClaimRequisitionLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertClaimRequisitionLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertClaimRequisitionLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertClaimRequisitionLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertHRMTrainingParticipants">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertHRMTrainingParticipants" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertHRMTrainingParticipants">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertHRMTrainingParticipants_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertImprestRequisitonLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertImprestRequisitonLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertImprestRequisitonLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertImprestRequisitonLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertImprestSurrenderLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertImprestSurrenderLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertImprestSurrenderLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertImprestSurrenderLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertPettyCashRequisitionLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertPettyCashRequisitionLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertPettyCashRequisitionLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertPettyCashRequisitionLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertPettyCashSurrenderLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertPettyCashSurrenderLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertPettyCashSurrenderLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertPettyCashSurrenderLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InsertStoreRequisitionLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertStoreRequisitionLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InsertStoreRequisitionLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InsertStoreRequisitionLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="IsLeaveAnnual">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:IsLeaveAnnual" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="IsLeaveAnnual">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="IsLeaveAnnual_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoadImprestSurrenderLineDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:LoadImprestSurrenderLineDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoadImprestSurrenderLineDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoadImprestSurrenderLineDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoadPettyCashSurrenderSurrenderLineDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:LoadPettyCashSurrenderSurrenderLineDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoadPettyCashSurrenderSurrenderLineDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoadPettyCashSurrenderSurrenderLineDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LoginForUnchangedPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:LoginForUnchangedPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginForUnchangedPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginForUnchangedPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelClaimRequisition">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelClaimRequisition" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelClaimRequisition">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelClaimRequisition_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelImprestRequisition">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelImprestRequisition" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelImprestRequisition">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelImprestRequisition_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelImprestSurrender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelImprestSurrender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelImprestSurrender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelImprestSurrender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelLeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelLeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelPettyCashRequisition">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelPettyCashRequisition" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelPettyCashRequisition">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelPettyCashRequisition_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelPettyCashSurrender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelPettyCashSurrender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelPettyCashSurrender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelPettyCashSurrender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnCancelStoreRequisitionApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnCancelStoreRequisitionApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnCancelStoreRequisitionApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnCancelStoreRequisitionApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnSendClaimRequisitionForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnSendClaimRequisitionForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnSendClaimRequisitionForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnSendClaimRequisitionForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnSendImprestRequisitionForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnSendImprestRequisitionForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnSendImprestRequisitionForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnSendImprestRequisitionForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnSendImprestSurrenderForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnSendImprestSurrenderForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnSendImprestSurrenderForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnSendImprestSurrenderForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnSendPettyCashRequisitionForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnSendPettyCashRequisitionForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnSendPettyCashRequisitionForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnSendPettyCashRequisitionForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnSendPettyCashSurrenderForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnSendPettyCashSurrenderForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnSendPettyCashSurrenderForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnSendPettyCashSurrenderForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnSendStoreRequisitionForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnSendStoreRequisitionForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnSendStoreRequisitionForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnSendStoreRequisitionForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="OnsendLeaveRequisitionForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:OnsendLeaveRequisitionForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="OnsendLeaveRequisitionForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="OnsendLeaveRequisitionForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RegFileUploadAtt1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RegFileUploadAtt1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RegFileUploadAtt1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RegFileUploadAtt1_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RegFileUploadAtt">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RegFileUploadAtt" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RegFileUploadAtt">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RegFileUploadAtt_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemoveAttachment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RemoveAttachment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemoveAttachment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemoveAttachment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemoveClaimRequisitionLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RemoveClaimRequisitionLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemoveClaimRequisitionLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemoveClaimRequisitionLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemoveHRMTrainingParticipant">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RemoveHRMTrainingParticipant" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemoveHRMTrainingParticipant">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemoveHRMTrainingParticipant_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemoveImprestRequisitionLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RemoveImprestRequisitionLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemoveImprestRequisitionLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemoveImprestRequisitionLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemovePettyCashRequisitionLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:RemovePettyCashRequisitionLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemovePettyCashRequisitionLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemovePettyCashRequisitionLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SaveMemoAttchmnts">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:SaveMemoAttchmnts" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SaveMemoAttchmnts">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SaveMemoAttchmnts_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="StaffLogin">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:StaffLogin" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="StaffLogin">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="StaffLogin_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateImprestHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdateImprestHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateImprestHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateImprestHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdatePettyCashHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdatePettyCashHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdatePettyCashHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdatePettyCashHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdatePettyCashSurrenderHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdatePettyCashSurrenderHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdatePettyCashSurrenderHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdatePettyCashSurrenderHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdatePettyCashSurrenderLines1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdatePettyCashSurrenderLines1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdatePettyCashSurrenderLines1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdatePettyCashSurrenderLines1_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdatePettyCashSurrenderLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdatePettyCashSurrenderLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdatePettyCashSurrenderLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdatePettyCashSurrenderLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateStaffPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdateStaffPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateStaffPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateStaffPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UploadDocument">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UploadDocument" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UploadDocument">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UploadDocument_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ValidateStartDate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:ValidateStartDate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ValidateStartDate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ValidateStartDate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="getEmployeeUserId">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:getEmployeeUserId" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="getEmployeeUserId">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="getEmployeeUserId_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AvailableLeaveDays1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:AvailableLeaveDays1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AvailableLeaveDays1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AvailableLeaveDays1_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AvailableLeaveDays">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:AvailableLeaveDays" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AvailableLeaveDays">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AvailableLeaveDays_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AvailableLeaveDayss">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:AvailableLeaveDayss" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AvailableLeaveDayss">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AvailableLeaveDayss_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CalcEndDate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CalcEndDate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CalcEndDate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CalcEndDate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CalcReturnDate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CalcReturnDate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CalcReturnDate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CalcReturnDate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckStaffPasswordChanged">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CheckStaffPasswordChanged" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckStaffPasswordChanged">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckStaffPasswordChanged_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckValidStaffNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CheckValidStaffNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckValidStaffNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckValidStaffNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateClaimRequisitionHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CreateClaimRequisitionHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateClaimRequisitionHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateClaimRequisitionHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateImprestRequisitionHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CreateImprestRequisitionHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateImprestRequisitionHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateImprestRequisitionHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateImprestSurrenderHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CreateImprestSurrenderHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateImprestSurrenderHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateImprestSurrenderHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreatePettyCashRequisitionHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CreatePettyCashRequisitionHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreatePettyCashRequisitionHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreatePettyCashRequisitionHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreatePettyCashSurrenderHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CreatePettyCashSurrenderHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreatePettyCashSurrenderHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreatePettyCashSurrenderHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateStoreRequisitionHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:CreateStoreRequisitionHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateStoreRequisitionHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateStoreRequisitionHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DeleteDocumentAttachment">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:DeleteDocumentAttachment" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DeleteDocumentAttachment">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DeleteDocumentAttachment_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DeleteStoreLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:DeleteStoreLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DeleteStoreLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DeleteStoreLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DetermineIfIncludesNonWorking">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:DetermineIfIncludesNonWorking" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DetermineIfIncludesNonWorking">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DetermineIfIncludesNonWorking_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DetermineIfIsNonWorking">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:DetermineIfIsNonWorking" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DetermineIfIsNonWorking">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DetermineIfIsNonWorking_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DetermineLeaveReturnDate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:DetermineLeaveReturnDate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DetermineLeaveReturnDate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DetermineLeaveReturnDate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateMemoReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GenerateMemoReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateMemoReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateMemoReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GeneratePayslipReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GeneratePayslipReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GeneratePayslipReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GeneratePayslipReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateStaffLeaveStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GenerateStaffLeaveStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateStaffLeaveStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateStaffLeaveStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Generatep9Report">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:Generatep9Report" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Generatep9Report">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Generatep9Report_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetAdvancetype">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetAdvancetype" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAdvancetype">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAdvancetype_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetApprovalEntries">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetApprovalEntries" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetApprovalEntries">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetApprovalEntries_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetAttachmentDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetAttachmentDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetAttachmentDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetAttachmentDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetClaimLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetClaimLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetClaimLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetClaimLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetClaimTypes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetClaimTypes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetClaimTypes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetClaimTypes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCustomers">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetCustomers" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCustomers">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCustomers_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetDefaultDays">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetDefaultDays" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetDefaultDays">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetDefaultDays_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetDimensions">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetDimensions" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetDimensions">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetDimensions_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetDocResponsibilityCentres">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetDocResponsibilityCentres" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetDocResponsibilityCentres">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetDocResponsibilityCentres_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetEmployeeName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetEmployeeName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetEmployeeName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetEmployeeName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetEmployees">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetEmployees" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetEmployees">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetEmployees_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetGLAccounts">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetGLAccounts" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetGLAccounts">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetGLAccounts_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetImprestDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetImprestDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetImprestDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetImprestDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetImprestLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetImprestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetImprestLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetImprestLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetImprestSurrenderResponsibilityCenter">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetImprestSurrenderResponsibilityCenter" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetImprestSurrenderResponsibilityCenter">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetImprestSurrenderResponsibilityCenter_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetItemQuantity">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetItemQuantity" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetItemQuantity">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetItemQuantity_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLeaveDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetLeaveDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLeaveDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLeaveDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLeaveRelieverDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetLeaveRelieverDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLeaveRelieverDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLeaveRelieverDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLeaveTransactions">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetLeaveTransactions" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLeaveTransactions">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLeaveTransactions_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLeaveTypes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetLeaveTypes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLeaveTypes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLeaveTypes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMonthName">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMonthName" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMonthName">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMonthName_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyAttachments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyAttachments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyAttachments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyAttachments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyClaims">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyClaims" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyClaims">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyClaims_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyImprestSurrenders">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyImprestSurrenders" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyImprestSurrenders">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyImprestSurrenders_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyImprests">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyImprests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyImprests">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyImprests_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyPettyCashRequests">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyPettyCashRequests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyPettyCashRequests">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyPettyCashRequests_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyPettyCashSurrenders">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyPettyCashSurrenders" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyPettyCashSurrenders">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyPettyCashSurrenders_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyStoresRequests">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyStoresRequests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyStoresRequests">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyStoresRequests_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetMyleaveApplications">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetMyleaveApplications" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetMyleaveApplications">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetMyleaveApplications_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetNextImprestSurrenderNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetNextImprestSurrenderNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetNextImprestSurrenderNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetNextImprestSurrenderNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetNextPettyCashNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetNextPettyCashNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetNextPettyCashNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetNextPettyCashNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPayslipMonths">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPayslipMonths" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPayslipMonths">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPayslipMonths_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPayslipYears">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPayslipYears" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPayslipYears">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPayslipYears_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPettyCashDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPettyCashDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPettyCashDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPettyCashDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPettyCashLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPettyCashLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPettyCashLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPettyCashLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPettyCashSurrenderDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPettyCashSurrenderDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPettyCashSurrenderDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPettyCashSurrenderDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPettyCashSurrenderLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPettyCashSurrenderLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPettyCashSurrenderLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPettyCashSurrenderLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPostedImprests">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetPostedImprests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPostedImprests">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPostedImprests_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetQuantityInStore">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetQuantityInStore" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetQuantityInStore">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetQuantityInStore_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetReceiptAmount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetReceiptAmount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetReceiptAmount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetReceiptAmount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetRelieverDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetRelieverDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetRelieverDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetRelieverDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetRelieverEmail">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetRelieverEmail" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetRelieverEmail">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetRelieverEmail_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffCitizenship">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffCitizenship" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffCitizenship">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffCitizenship_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffDepartmentDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffDepartmentDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffDepartmentDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffDepartmentDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffEmail">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffEmail" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffEmail">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffEmail_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffGender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffGender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffGender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffGender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStaffPettyCashNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStaffPettyCashNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStaffPettyCashNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStaffPettyCashNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetStoreItemQuantity">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetStoreItemQuantity" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetStoreItemQuantity">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetStoreItemQuantity_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetTotalImprestAmount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetTotalImprestAmount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetTotalImprestAmount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetTotalImprestAmount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetTotalImprestSurrenderAmount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetTotalImprestSurrenderAmount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetTotalImprestSurrenderAmount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetTotalImprestSurrenderAmount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HRMLeaveApplication1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HRMLeaveApplication1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HRMLeaveApplication1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HRMLeaveApplication1_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HRMLeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HRMLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HRMLeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HRMLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HRMTrainingApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HRMTrainingApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HRMTrainingApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HRMTrainingApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasPendingLeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HasPendingLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasPendingLeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasPendingLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasPendingPettyCash">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HasPendingPettyCash" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasPendingPettyCash">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasPendingPettyCash_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Staffportall">
+    <port name="Staffportall_Port" binding="tns:Staffportall_Binding">
+      <address location="http://108.181.152.166:1447/AceMedia/WS/Test/Codeunit/Staffportall" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

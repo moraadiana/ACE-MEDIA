@@ -1,0 +1,216 @@
+﻿@model Staffportal.Models.Finance
+@{
+    ViewBag.Title = $"Petty Cash Surrender Lines for petty cash surrender number {Model.SurrenderNo}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Petty Cash Surrender Lines - <span class="text-primary">@Model.SurrenderNo</span></h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Petty Cash Surrender Lines</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    @if (Model.Status == "Pending")
+                    {
+                        <form action="@Url.Action("uploadpettycashsurrenderdocument","finance")" method="post" enctype="multipart/form-data">
+                            <input name="SurrenderNo" value="@Model.SurrenderNo" class="form-control" type="hidden" />
+                            <input name="DocumentNo" value="@Model.DocumentNo" class="form-control" type="hidden" />
+                            <input name="Status" value="@Model.Status" class="form-control" type="hidden" />
+                            <div class="row mt-3 mb-3">
+                                <div class="col-md-4">
+                                    <label>Choose a file to upload</label>
+                                    <input type="file" name="AttachmentFile" class="form-control" required />
+                                    <button type="submit" class="btn btn-primary mt-2"><i class="bx bx-upload"></i> Upload</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                    }
+                    <form action="@Url.Action("pettycashsurrenderlines","finance")" method="post">
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <h5>Petty Cash Surrender Lines</h5>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="hidden" name="SurrenderNo" class="form-control" value="@Model.SurrenderNo" id="surrender-no" />
+                                <input type="hidden" name="DocumentNo" class="form-control" value="@Model.DocumentNo" id="surrender-no" />
+                                <input type="hidden" name="Status" class="form-control" value="@Model.Status" />
+                                <input type="hidden" name="SelectedCategories" class="form-control" id="categories" />
+                                <div class="table-responsive text-wrap">
+                                    <table id="example" class="table table-striped mt-3 small">
+                                        <thead>
+                                            <tr>
+                                                <th class="small">Account No</th>
+                                                <th class="small">Account Name</th>
+                                                <th class="small">Amount</th>
+                                                <th class="small">Receipts</th>
+                                                <th class="small">Actual Spent</th>
+                                                <th class="small">Cash Returned</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.PettyCashSurrenderLines.Any())
+                                            {
+                                                foreach (var item in Model.PettyCashSurrenderLines)
+                                                {
+                                                    <tr>
+                                                        <td>@item.AccountNo</td>
+                                                        <td>@item.AccountName</td>
+                                                        <td>@item.Amount</td>
+                                                        <td>
+                                                            @Html.DropDownListFor(m => m.ReceiptNo, new SelectList(Model.ImprestReceipts, "Code", "Code"), "--Select Receipt--", new { @class = "form-control receipts", id = "receipts" })
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control actual-spent" required placeholder="Actual Spent" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control cash-returned" placeholder="Cash Returned" />
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <h5>Document Attachments</h5>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive text-wrap">
+                                    <table id="example2" class="table table-striped mt-3 small">
+                                        <thead>
+                                            <tr>
+                                                <th class="small">Document No</th>
+                                                <th class="small">File Name</th>
+                                                <th class="small">File Extension</th>
+                                                <th class="small">Created At</th>
+                                                <th class="small">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.FinanceAttachments.Any())
+                                            {
+                                                foreach (var item in Model.FinanceAttachments)
+                                                {
+                                                    <tr>
+                                                        <td>@Model.SurrenderNo</td>
+                                                        <td>@item.FileName</td>
+                                                        <td>@item.FileExtension</td>
+                                                        <td>@Convert.ToDateTime(item.CreatedAt).ToString("dd MMM yyyy")</td>
+                                                        <td><a class="text-danger" href="@Url.Action("removepettycashsurrenderattachment", "finance", new {surrenderNo = Model.SurrenderNo, status = Model.Status, id = item.SystemId, documentNo = Model.DocumentNo })"><i class="bx bx-trash-alt"></i></a></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                <a class="btn btn-warning" href="@Url.Action("pettycashsurrenderlisting", "finance")">Back</a>
+                                @if (Model.Status == "Open" || Model.Status == "Pending")
+                                {
+                                    <button type="submit" class="btn btn-success" onclick="validateInputs()">Send Approval</button>
+                                }
+                                else if (Model.Status == "Pending Approval")
+                                {
+                                    <a href="@Url.Action("cancelpettycashsurrenderapproval","finance", new {surrenderNo = Model.SurrenderNo, status = Model.Status, documentNo = Model.DocumentNo})" class="btn btn-danger">Cancel Approval</a>
+                                }
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const table = document.getElementById('example');
+    const categoriesDOM = document.getElementById('categories');
+    const surrenderNoDOM = document.getElementById('surrender-no');
+
+    const loadPettyCashSurrenderDetails = async function () {
+        const inputs = table.querySelectorAll('.receipts');
+        for (let i = 0; i < inputs.length; i++) {
+            const rows = inputs[i].parentElement.parentElement;
+            const accountNo = rows.cells[0].innerHTML;
+            const surrenderNo = surrenderNoDOM.value;
+            const receiptDOM = rows.cells[3].querySelector('.receipts');
+            const actualSpentDOM = rows.cells[4].querySelector('.actual-spent');
+            const cashReturnedDOM = rows.cells[5].querySelector('.cash-returned');
+            const response = await fetch(`/api/getmypettycashsurrenderdetails?surrenderNo=${surrenderNo}&accountNo=${accountNo}`);
+            const result = await response.json();
+            receiptDOM.value = result.ReceiptNo;
+            actualSpentDOM.value = result.ActualSpent.split(',').join('');
+            cashReturnedDOM.value = result.CashReturned.split(',').join('');
+        }
+    }
+    loadPettyCashSurrenderDetails();
+
+    const validateInputs = function () {
+        let categories = '';
+        const inputs = table.querySelectorAll('.receipts');
+        for (let i = 0; i < inputs.length; i++) {
+            const rows = inputs[i].parentElement.parentElement;
+            const receiptDOM = rows.cells[3].querySelector('.receipts');
+            const actualSpentDOM = rows.cells[4].querySelector('.actual-spent');
+            const cashReturnedDOM = rows.cells[5].querySelector('.cash-returned');
+            const accountNo = rows.cells[0].innerHTML;
+            const accountName = rows.cells[1].innerHTML;
+            const amount = rows.cells[2].innerHTML;
+            const receiptNo = receiptDOM.value;
+            const actualSpent = actualSpentDOM.value;
+            const cashReturned = cashReturnedDOM.value;
+            const totalAmount = Number(actualSpent) + Number(cashReturned);
+
+            if (Number(actualSpent) > Number(amount)) {
+                alert('Actual amount spent cannot not be more than amount received');
+                actualSpentDOM.focus();
+                return false;
+            }
+
+            if (Number(totalAmount) > Number(amount)) {
+                alert('Actual spent plus cash returned cannot be more than amount recieved!')
+                actualSpentDOM.focus();
+                return false;
+            }
+
+
+            categories += accountNo + '::' + accountName + '::' + amount + '::' + receiptNo + '::' + actualSpent + '::' + cashReturned + '[]';
+        }
+        categoriesDOM.value = '';
+        categoriesDOM.value = categories;
+        return true;
+    }
+</script>
