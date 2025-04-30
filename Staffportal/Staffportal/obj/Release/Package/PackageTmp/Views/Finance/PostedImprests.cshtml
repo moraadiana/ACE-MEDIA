@@ -1,0 +1,73 @@
+﻿@model Staffportal.Models.Finance
+@{
+    ViewBag.Title = "Posted Imprests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Posted Imprests</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Posted Imprests</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="table-responsive text-wrap">
+                        <table id="example" class="table table-striped mt-3 small">
+                            <thead>
+                                <tr>
+                                    <th class="small">#</th>
+                                    <th class="small">Imprest No</th>
+                                    <th class="small">Date</th>
+                                    <th class="small">Payee</th>
+                                    <th class="small">Amount</th>
+                                    <th class="small">Status</th>
+                                    <th class="small">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.PostedImprests.Any())
+                                {
+                                    foreach (var item in Model.PostedImprests)
+                                    {
+                                        <tr>
+                                            <td>@item.Counter</td>
+                                            <td>@item.DocumentNo</td>
+                                            <td>@Convert.ToDateTime(item.Date).ToShortDateString()</td>
+                                            <td>@item.StaffName</td>
+                                            <td>@String.Format(@"{0:#,##0.00}", item.Amount)</td>
+                                            <td><span class="badge bg-@item.StatusCls">@item.Status</span></td>
+                                            <td><a href="@Url.Action("imprestsurrenderlines", "finance", new {imprestNo=item.DocumentNo, status="Pending"})" class="text-primary"><i class="bx bxs-pencil"></i> Surrender</a></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

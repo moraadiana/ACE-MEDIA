@@ -1,0 +1,245 @@
+﻿@model Staffportal.Models.Finance
+@{
+    ViewBag.Title = $"Imprest surrender lines for surrender number {Model.SurrenderNo}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Imprest Surrender Lines - <label class="text-primary">@Model.SurrenderNo</label></h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Imprest Surrender Lines</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @if (Model.Status == "Pending")
+                    {
+                        <form action="@Url.Action("uploadsurrenderdocuments","finance")" method="post" enctype="multipart/form-data">
+                            <div class="row mt-3">
+                                <input name="SurrenderNo" value="@Model.SurrenderNo" type="hidden" />
+                                <input name="Status" value="@Model.Status" type="hidden" />
+                                <input name="DocumentNo" value="@Model.DocumentNo" type="hidden" />
+                                <div class="col-md-4">
+                                    <label>Choose a file to upload</label>
+                                    <input type="file" name="AttachmentFile" required class="form-control" />
+                                    <button type="submit" class="btn btn-primary mt-2"><i class="bx bx-upload"></i> Upload</button>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                    <form method="post" action="@Url.Action("imprestsurrenderlines","finance")">
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <input name="SurrenderNo" value="@Model.SurrenderNo" type="hidden" id="surrender-no" />
+                                <input name="Status" value="@Model.Status" type="hidden" />
+                                <input name="DocumentNo" value="@Model.DocumentNo" type="hidden" />
+                                <input name="SelectedCategories" type="hidden" id="categories" />
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Surrender No</label><br />
+                                        <label class="text-primary">@Model.SurrenderNo</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Responsibility Center</label>
+                                        @Html.DropDownListFor(m => m.ResponsibilityCenter, new SelectList(Model.ResponsibilityCenters, "Code", "Description", Model.ResponsibilityCenter), new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <div class="table-responsive text-wrap">
+                                    <table id="example" class="table table-striped mt-3 small">
+                                        <thead>
+                                            <tr>
+                                                <th class="small">Advance Type</th>
+                                                <th class="small">Account No</th>
+                                                <th class="small" style="display:none;">Account Name</th>
+                                                <th class="small">Amount</th>
+                                                <th class="small">Receipts</th>
+                                                <th class="small">Actual Spent</th>
+                                                <th class="small">Cash Returned</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.ImprestLines.Any())
+                                            {
+                                                foreach (var item in Model.ImprestLines)
+                                                {
+                                                    <tr>
+                                                        <td>@item.AdvanceType</td>
+                                                        <td>@item.AccountNo</td>
+                                                        <td style="display:none;">@item.AccountName</td>
+                                                        <td>@item.Amount</td>
+                                                        <td>
+                                                            @Html.DropDownListFor(m => m.ReceiptNo, new SelectList(Model.ImprestReceipts, "Code", "Code"), "--Select Reciept--", new { @class = "form-control receipts", id = "receipts" })
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control actual-spent" placeholder="Actual Spent" type="number" id="actual-spent" required />
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control cash-returned" placeholder="Cash Returned" type="number" id="cash-returned" readonly />
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <h5>Document Attachments</h5>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive text-wrap">
+                                    <table id="example1" class="table table-striped mt-3 small">
+                                        <thead>
+                                            <tr>
+                                                <th class="small">Document No</th>
+                                                <th class="small">File Name</th>
+                                                <th class="small">File Extension</th>
+                                                <th class="small">Created At</th>
+                                                <th class="small">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.FinanceAttachments.Any())
+                                            {
+                                                foreach (var item in Model.FinanceAttachments)
+                                                {
+                                                    <tr>
+                                                        <td>@Model.DocumentNo</td>
+                                                        <td>@item.FileName</td>
+                                                        <td>@item.FileExtension</td>
+                                                        <td>@Convert.ToDateTime(item.CreatedAt).ToString("dd MMM yyyy")</td>
+                                                        <td><a class="text-danger" href="@Url.Action("removeimprestsurrenderattachment", "finance", new {surrenderNo = Model.SurrenderNo, imprestNo=Model.DocumentNo,status=Model.Status,id=item.SystemId})"><i class="bx bx-trash-alt"></i></a></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                <a href="@Url.Action("imprestsurrenderlisting","finance")" class="btn btn-warning">Back</a>
+                                @if (Model.Status == "Pending" || Model.Status == "Open")
+                                {
+                                    <button type="submit" class="btn btn-success" onclick="return validateInputs();">Send Approval</button>
+                                }
+                                else if (Model.Status == "Pending Approval")
+                                {
+                                    <a href="@Url.Action("cancelimprestsurrenderapproval", "finance", new {imprestNo=Model.DocumentNo, surrenderNo=Model.SurrenderNo,status=Model.Status})">Cancel Approval</a>
+                                }
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const table = document.getElementById('example');
+    const inputs = table.querySelectorAll('.actual-spent');
+    const categories = document.getElementById('categories');
+    const surrenderNoLabel = document.getElementById('surrender-no');
+
+    const getReceiptAmount = async function (receiptNo) {
+        const response = await fetch(`/api/getreceiptamount?receiptNo=${receiptNo}`);
+        const result = await response.json();
+        return result;
+    }
+
+    const loadImprestSurrenderDetails = async function () {
+        for (let i = 0; i < inputs.length; i++) {
+            let rows = inputs[i].parentElement.parentElement;
+            let accountNo = rows.cells[1].innerHTML;
+            let amount = rows.cells[3].innerHTML;
+            const surrenderNo = surrenderNoLabel.value;
+            const response = await fetch(`/api/getimprestsurrenderdetails?surrenderNo=${surrenderNo}&accountNo=${accountNo}`);
+            const result = await response.json();
+
+            result.forEach(function (item, i, arr) {
+                rows.cells[4].querySelector('.receipts').value = item.ReceiptNo;
+                rows.cells[5].querySelector('.actual-spent').value = item.ActualSpent.split(',').join('');
+                //rows.cells[6].querySelector('.cash-returned').value = item.CashReturned.split(',').join('');
+            });
+
+            const cashReturnedDOM = rows.cells[6].querySelector('.cash-returned');
+            let receiptDOM = rows.cells[4].querySelector('.receipts');
+            let receiptNo = receiptDOM.value;
+            if (receiptNo !== '') {
+                let receiptAmount = await getReceiptAmount(receiptNo)
+                cashReturnedDOM.value = receiptAmount;
+            }
+            receiptDOM.addEventListener('change', async function () {
+                let receiptNoE = receiptDOM.value;
+                if (receiptNoE !== '') {
+                    let receiptAmountE = await getReceiptAmount(receiptNoE)
+                    cashReturnedDOM.value = receiptAmountE;
+                }
+            });
+        }
+    }
+    loadImprestSurrenderDetails();
+
+    const validateInputs = function () {
+        let message = '';
+        for (let i = 0; i < inputs.length; i++) {
+            let rows = inputs[i].parentElement.parentElement;
+            let actualSpent = rows.cells[5].querySelector('.actual-spent').value;
+            let cashReturned = rows.cells[6].querySelector('.cash-returned').value;
+            let advanceType = rows.cells[0].innerHTML;
+            let accountNo = rows.cells[1].innerHTML;
+            let amount = rows.cells[3].innerHTML;
+            let receipt = rows.cells[4].querySelector('.receipts').value;
+
+            let totalAmountSpent = Number(actualSpent) + Number(cashReturned);
+
+            //if (actualSpent === '') {
+            //    alert('Actual spent cannot be empty');
+            //    return false;
+            //}
+
+            if (Number(actualSpent) > Number(amount)) {
+                alert('Actual spent cannot be more than the requested amount!');
+                return false;
+            }
+
+            if (totalAmountSpent > Number(amount)) {
+                alert('Actual spent plus cash returned cannot be more than amount requested!');
+                return false;
+            }
+
+            message += advanceType + '::' + accountNo + '::' + amount + '::' + actualSpent + '::' + cashReturned + '::' + receipt + '[]';
+        }
+        categories.value = '';
+        categories.value = message;
+        return true;
+    };
+</script>

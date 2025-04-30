@@ -1,0 +1,220 @@
+﻿@model Staffportal.Models.Procurement
+@{
+    ViewBag.Title = "Store Lines";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Store Lines - <span class="text-primary">@Model.DocumentNo</span></h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Store Lines</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label>Staff No</label><br />
+                            <label class="text-primary">@Model.StaffNo</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Staff Name</label><br />
+                            <label class="text-primary">@Model.StaffName</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Directorate</label><br />
+                            <label class="text-primary">@Model.Directorate</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Department</label><br />
+                            <label class="text-primary">@Model.Department</label>
+                        </div>
+                    </div>
+                    @if (Model.Status == "Open" || Model.Status == "Pending")
+                    {
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <form action="@Url.Action("storelines","procurement")" method="post">
+                                    <input type="hidden" name="DocumentNo" value="@Model.DocumentNo" />
+                                    <input type="hidden" name="Status" value="@Model.Status" />
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Type</th>
+                                                <th>Item No</th>
+                                                <th>Quantity Requested</th>
+                                                <th>Issuing Store</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select name="Type" class="form-control" required id="item-type">
+                                                        <option value="1">Item</option>
+                                                        <option value="2">Minor Asset</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="ItemNo" class="form-control" required id="item-no"></select>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="Quantity" placeholder="Quantity" required class="form-control" id="quantity" />
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(m => m.IssuingStore, new SelectList(Model.IssuingStores, "Code", "Description"), new { @class = "form-control" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-end" onclick="return validateInputs()">Add</button>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h6>Store Lines</h6>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive text-wrap">
+                                <table id="example" class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Document No</th>
+                                            <th>Type</th>
+                                            <th>No</th>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.StoreLines)
+                                        {
+                                            <tr>
+                                                <td>@Model.DocumentNo</td>
+                                                <td>@item.ItemType</td>
+                                                <td>@item.ItemNo</td>
+                                                <td>@item.Description</td>
+                                                <td>@item.Quantity</td>
+                                                <td><a class="text-danger" href="@Url.Action("removestoreline", "procurement", new {id=item.SystemId})"><i class="bx bxs-trash-alt"></i></a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12 d-flex justify-content-between align-items-center">
+                            <a href="@Url.Action("storelisting","procurement")" class="btn btn-warning">Back</a>
+                            @if (Model.Status == "Open" || Model.Status == "Pending")
+                            {
+                                <a href="@Url.Action("sendstoreapproval","procurement", new {storeNo = Model.DocumentNo})" class="btn btn-success">Send Approval</a>
+                            }
+                            else if (Model.Status == "Pending Approval")
+                            {
+                                <a href="@Url.Action("cancelstoreapproval","procurement", new {storeNo = Model.DocumentNo})" class="btn btn-danger">Cancel Approval</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const itemType = document.getElementById('item-type');
+    const itemContainer = document.getElementById('item-no');
+    const quantityRequested = document.getElementById('quantity');
+    let quantity = 0;
+
+    const getItemQuantity = async function () {
+        quantity = 0;
+        const response = await fetch(`/api/getitemquantity?itemNo=${itemContainer.value}`);
+        const result = await response.json();
+        quantity = result[0];
+    }
+
+    const getItems = async function () {
+        itemContainer.innerHTML = '';
+        const response = await fetch('/api/getitems');
+        const result = await response.json();
+        let html = '';
+        result.forEach(function (item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Description}</option>`;
+        });
+        itemContainer.innerHTML = html;
+        getItemQuantity();
+    }
+    getItems();
+
+    const getFixedAssets = async function () {
+        itemContainer.innerHTML = '';
+        const response = await fetch('/api/getfixedassets');
+        const result = await response.json();
+        let html = '';
+        result.forEach(function (item, i, arr) {
+            html += `<option value='${item.Code}'>${item.Description}</option>`;
+        });
+        itemContainer.innerHTML = html;
+    }
+
+    itemType.addEventListener('change', function () {
+        const selectedItem = itemType.value;
+        if (selectedItem === '1') getItems();
+        else getFixedAssets();
+    })
+
+    itemContainer.addEventListener('change', function () {
+        if (itemType.value === '1') getItemQuantity();
+        else return;
+    });
+
+    const validateInputs = function () {
+        if (itemType.value === '1') {
+            if (quantity < 1) {
+                alert('Item out of stock');
+                return false;
+            }
+
+            if (+quantityRequested.value > quantity) {
+                alert('Quantity requested cannot be more than quantity in stock');
+                return false;
+            }
+        }
+    }
+</script>

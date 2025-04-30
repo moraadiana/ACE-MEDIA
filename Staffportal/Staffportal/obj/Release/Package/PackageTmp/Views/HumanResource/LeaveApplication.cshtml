@@ -1,0 +1,229 @@
+﻿@model Staffportal.Models.HumanResource
+@{
+    ViewBag.Title = "Leave Application";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Leave Application</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Leave Application</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("leaveapplication","humanresource")" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Leave Type</label>
+                                    @Html.DropDownListFor(m => m.LeaveType, new SelectList(Model.LeaveTypes, "Code", "Description"), new { @class = "form-control", id = "leave-type" })
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="display: none;">
+                                <div class="mb-3">
+                                    <label class="mb-1">Reliever</label>
+                                    @Html.DropDownListFor(m => m.Reliever, new SelectList(Model.Relievers, "Code", "Description"), new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Responsibility Center</label>
+                                    @Html.DropDownListFor(m => m.ResponsibilityCenter, new SelectList(Model.ResponsibilityCenters, "Code", "Description"), new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Balance</label>
+                                    <input type="text" name="LeaveBalance" id="leave-balance" class="form-control" required readonly placeholder="Leave Balance" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Applied Days</label>
+                                    <input type="number" id="applied-days" name="AppliedDays" class="form-control" required placeholder="Applied Days" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Start Date</label>
+                                    <input type="date" id="start-date" name="StartDate" class="form-control" required placeholder="yyyy-mm-dd" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">End Date</label>
+                                    <input type="text" name="EndDate" id="end-date" class="form-control" required readonly placeholder="mm/dd/yyyy" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Return Date</label>
+                                    <input type="text" name="ReturnDate" id="return-date" class="form-control" required readonly placeholder="mm/dd/yyyy" />
+                                </div>
+                            </div>
+                            @*<div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Directorate</label>
+                                    <input type="text" name="Directorate" id="directorate" value="@Model.Directorate" class="form-control" required readonly />
+                                </div>
+                            </div>*@
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="mb-1">Department</label>
+                                    <input type="text" name="Department" id="department" value="@Model.Department" class="form-control" required readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="mb-1">Purpose</label>
+                                    <textarea id="purpose" name="Purpose" class="form-control" required placeholder="Please type your purpose here.."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="display:none;">
+                                <div class="mb-3">
+                                    <label class="mb-1">Comments to Reliever</label>
+                                    <textarea id="comments" name="Comments" class="form-control" placeholder="Please type comments the the reliever here.."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="@Url.Action("leavelisting","humanresource")" class="btn btn-warning">Back</a>
+                                    <button type="submit" class="btn btn-success" onclick="return hasAppliedLeave()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script type="text/javascript">
+    const leaveTypes = document.getElementById('leave-type');
+    const leaveBalance = document.querySelector('#leave-balance');
+    const startDate = document.getElementById('start-date');
+    const appliedDays = document.getElementById('applied-days');
+    const endDate = document.getElementById('end-date');
+    const returnDate = document.getElementById('return-date');
+    const purpose = document.getElementById('purpose');
+
+    flatpickr(startDate, {
+        minDate: "today"
+    });
+
+    const addZero = function (num) {
+        return num < 10 ? `0${num}` : num;
+    }
+
+    const formatDates = function (dateObj) {
+        const today = new Date(dateObj);
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
+        const date = today.getDate();
+
+        return `${addZero(month)}/${addZero(date)}/${year}`;
+    }
+
+    const getLeaveBalance = async function () {
+        const leaveType = leaveTypes.value;
+        const response = await fetch(`/api/leavebalance?leaveType=${leaveType}`);
+        const result = await response.json();
+        leaveBalance.value = result;
+    }
+    getLeaveBalance();
+
+    leaveTypes.addEventListener('change', async function () {
+        getLeaveBalance();
+    });
+
+    const validStartDate = async function () {
+        const startingDate = startDate.value;
+        const leaveType = leaveTypes.value;
+        const response = await fetch(`/api/validatestartdate?startDate=${startingDate}`);
+        const result = await response.json();
+        if (result !== '') {
+            alert(result);
+            startDate.value = '';
+        } else {
+            const daysApplied = appliedDays.value;
+            if (daysApplied === '') {
+                alert('Applied days cannot be empty');
+                startDate.value = '';
+                appliedDays.focus();
+                return;
+            }
+            const dateResponse = await fetch(`/api/calculateenddate?startDate=${startingDate}&appliedDays=${daysApplied}&leaveType=${leaveType}`);
+            const dateResult = await dateResponse.json();
+            endDate.value = formatDates(dateResult.EndingDate);
+            returnDate.value = formatDates(dateResult.ReturningDate);
+        }
+    }
+
+    startDate.addEventListener('change', validStartDate);
+
+    function validateLeave() {
+        const balance = leaveBalance.value;
+        const days = appliedDays.value;
+        const startDateValue = startDate.value;
+        if (balance === 'Not Available') {
+            alert('You have no leave days assigned to the leave type. Please select another leave type!');
+            return false
+        }
+        if (+days > +balance) {
+            alert('Applied days cannot be more than available days.');
+            return false
+        }
+        if (+balance <= 0) {
+            alert('You have exhausted your leave days. Please visit the HR to update your leave days');
+            return false
+        }
+
+        if (+days <= 0) {
+            alert('Applied days cannot be zero or a negative');
+            appliedDays.value = '';
+            appliedDays.focus();
+            return false;
+        }
+
+        if (startDateValue == '') {
+            alert('Start date cannot be null or empty');
+            startDate.focus();
+            return false;
+        }
+
+        if (purpose.value.length > 200) {
+            alert('Purpose cannot be more than 200 characters.');
+            return false
+        }
+    }
+</script>

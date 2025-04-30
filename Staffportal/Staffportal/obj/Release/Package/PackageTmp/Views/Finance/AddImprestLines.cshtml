@@ -1,0 +1,235 @@
+﻿@model Staffportal.Models.Finance
+@{
+    ViewBag.Title = $"Imprest lines for imprest number {Model.DocumentNo}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Imprest Lines - <label class="text-primary">@Model.DocumentNo</label></h5>
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Imprest Lines</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @if (Model.Status == "Pending")
+                    {
+                        <form action="@Url.Action("uploadimprestdocuments","finance")" method="post" enctype="multipart/form-data" class="mt-3 p-3 border rounded bg-light shadow-sm">
+                            <div class="row g-3 align-items-center">
+                                <!-- Used 'g-3' for consistent spacing -->
+                                <input type="hidden" name="DocumentNo" value="@Model.DocumentNo" />
+                                <input type="hidden" name="Status" value="@Model.Status" />
+                                <input type="hidden" name="ResponsibilityCenter" value="@Model.ResponsibilityCenter" />
+
+                                <!-- Responsibility Center -->
+                                @*<div class="col-md-4">
+                                        <label class="form-label fw-bold">Responsibility Center</label>
+                                        @Html.DropDownListFor(m => m.ResponsibilityCenter,
+                                            new SelectList(Model.ResponsibilityCenters, "Code", "Description", Model.ResponsibilityCenter),
+                                            new { @class = "form-select" })
+                                    </div>*@
+                                @*<div class="col-md-4">
+                                        <label class="form-label">Responsibility Center</label>
+                                        @Html.DropDownListFor(m => m.ResponsibilityCenter, new SelectList(Model.ResponsibilityCenters, "Code", "Description", Model.ResponsibilityCenter), new { @class = "form-control" })
+                                    </div>*@
+
+
+                                <!-- File Upload + Upload Button -->
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">Choose a file to upload</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="AttachmentFile" required />
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="bx bx-upload"></i> Upload
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Add Lines Button -->
+                                <div class="col-md-4 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        <i class="bx bx-plus-circle"></i> Add Lines
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    }
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Increased width for better usability -->
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary text-white">
+                                    <h5 class="modal-title" id="staticBackdropLabel">
+                                        <i class="bx bx-plus-circle"></i> Add Line to Imprest #@Model.DocumentNo
+                                    </h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-3">
+                                    <!-- Added padding for better spacing -->
+                                    <form action="@Url.Action("AddImprestLines","finance")" method="post">
+                                        <input type="hidden" name="DocumentNo" value="@Model.DocumentNo" />
+                                        <input type="hidden" name="Status" value="@Model.Status" />
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-bold">Imprest No</label>
+                                                <p class="text-primary border p-2 rounded bg-light">@Model.DocumentNo</p> <!-- Styled to look like a read-only field -->
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-bold">Advance Type</label>
+                                                @Html.DropDownListFor(m => m.ImprestType, new SelectList(Model.ImprestTypes, "Code", "Description", Model.ImprestType), new { @class = "form-select" }) <!-- Used form-select -->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-bold">Amount</label>
+                                                <input type="number" name="Amount" class="form-control" required placeholder="Enter amount" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary bx-pull-left" data-bs-dismiss="modal">
+                                                <i class="bx bx-x"></i> Close
+                                            </button>
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="bx bx-check-circle"></i> Submit
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="@Url.Action("imprestlines","finance")" method="post">
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <input type="hidden" name="DocumentNo" value="@Model.DocumentNo" />
+                                <input type="hidden" name="Status" value="@Model.Status" />
+                                <input type="hidden" name="ResponsibilityCenter" value="@Model.ResponsibilityCenter" />
+                                <div class="row">
+                                    @*<div class="col-md-4">
+                                        <label class="form-label">Imprest No</label><br />
+                                        <label class="text-primary">@Model.DocumentNo</label>*@
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Responsibility Center</label>
+                                    @Html.DropDownListFor(m => m.ResponsibilityCenter, new SelectList(Model.ResponsibilityCenters, "Code", "Description", Model.ResponsibilityCenter), new { @class = "form-control" })
+                                </div>
+                                @*<div class="col-md-4">
+                                        <label class="form-label">Advance Type</label>
+                                        @Html.DropDownListFor(m => m.ImprestType, new SelectList(Model.ImprestTypes, "Code", "Description", Model.ImprestType), new { @class = "form-control" })
+                                    </div>*@
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div class="table-responsive text-wrap">
+                                <table id="example" class="table table-striped mt-3 small">
+                                    <thead>
+                                        <tr>
+                                            <th class="small">#No</th>
+                                            <th class="small">Advance Type</th>
+                                            <th class="small">Account No</th>
+                                            <th class="small">Account Name</th>
+                                            <th class="small">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model.ImprestLines.Any())
+                                        {
+                                            foreach (var item in Model.ImprestLines)
+                                            {
+                                                <tr>
+                                                    <td>@item.Counter</td>
+                                                    <td>@item.AdvanceType</td>
+                                                    <td>@item.AccountNo</td>
+                                                    <td>@item.AccountName</td>
+                                                    <td>@String.Format(@"{0:#,##0.00}", item.Amount)</td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h5>Document Attachments</h5>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="table-responsive text-wrap">
+                            <table id="example1" class="table table-striped mt-3 small">
+                                <thead>
+                                    <tr>
+                                        <th class="small">Document No</th>
+                                        <th class="small">File Name</th>
+                                        <th class="small">File Extension</th>
+                                        <th class="small">Created At</th>
+                                        <th class="small">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.FinanceAttachments.Any())
+                                    {
+                                        foreach (var item in Model.FinanceAttachments)
+                                        {
+                                            <tr>
+                                                <td>@Model.DocumentNo</td>
+                                                <td>@item.FileName</td>
+                                                <td>@item.FileExtension</td>
+                                                <td>@Convert.ToDateTime(item.CreatedAt).ToString("dd MMM yyyy")</td>
+                                                <td><a class="text-danger" href="@Url.Action("removeimprestattachment", "finance", new {imprestNo=Model.DocumentNo,status=Model.Status,id=item.SystemId})"><i class="bx bx-trash-alt"></i></a></td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        @if (Model.Status == "Pending")
+                        {
+                            <button type="submit" class="btn btn-primary float-end">Send Approval</button>
+                        }
+                        else
+                        {
+                            <a class="btn btn-danger float-end" href="@Url.Action("cancelimprestapproval", "finance", new { imprestNo = Model.DocumentNo, status = Model.Status })">Cancel Approval</a>
+                        }
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -764,7 +764,8 @@ namespace Staffportal.Controllers
                 if (string.IsNullOrEmpty(surrenderNo)) documentNo = webportals.GetNextImprestSurrenderNo();
                 else documentNo = surrenderNo;
                 string username = Session["username"].ToString();
-                string grouping = "IMPSURR";
+                //string grouping = "IMPSURR"; 
+                    string grouping = "SURRENDER";
                 var resCenters = Helper.GetResponsibilityCenters(grouping);
                 var imprestLines = FinanceHelper.GetImprestsLines(imprestNo);
                 var attachments = Helper.GetMyAttachments(documentNo);
