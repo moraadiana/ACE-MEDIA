@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Staffportal_NAVWS_Staffportall" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://108.181.152.166:1447/AceMedia/WS/Test/Codeunit/Staffportall</Value>
+      <Value Profile="(Default)">http://108.181.152.166:1447/AceMedia/WS/Funct/Codeunit/Staffportall</Value>
     </Setting>
   </Settings>
 </SettingsFile>

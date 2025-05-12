@@ -26,7 +26,7 @@ namespace Staffportal.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://108.181.152.166:1447/AceMedia/WS/Test/Codeunit/Staffportall")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://108.181.152.166:1447/AceMedia/WS/Funct/Codeunit/Staffportall")]
         public string Staffportal_NAVWS_Staffportall {
             get {
                 return ((string)(this["Staffportal_NAVWS_Staffportall"]));

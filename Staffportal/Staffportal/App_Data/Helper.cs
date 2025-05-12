@@ -149,10 +149,7 @@ namespace Staffportal
             }
             return list;
         }
-        //public string Config GetJobOrderCode()
-        //{
-
-        //}
+        
         public static Config GetDepartmentDetails(string username)
         {
             var departments = new Config();
