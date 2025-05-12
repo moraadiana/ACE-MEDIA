@@ -16,7 +16,7 @@ namespace Staffportal.Controllers
             {
                 string filename = documentNo.Replace("/", "");
                 string pdfFile = $"MemoReport-{filename}.pdf";
-                webportals.GenerateMemoReport(documentNo, pdfFile);
+                //webportals.GenerateMemoReport(documentNo, pdfFile);
                 string filepath = Url.Content($"~/Downloads/{pdfFile}");
                 ViewBag.filepath = filepath;
             }

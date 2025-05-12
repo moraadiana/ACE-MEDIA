@@ -537,6 +537,7 @@ namespace Staffportal.Controllers
                 string dept = "FINANCE";
                 string imprestNo = "";
                 string reponse = webportals.CreateImprestRequisitionHeader(username, resCenter, purpose, clientCode,jobOrderCode);
+                //string reponse = webportals.CreateImprestRequisitionHeader(username,  purpose);
                 if (!string.IsNullOrEmpty(reponse))
                 {
                     string[] responseArr = reponse.Split(strLimiters, StringSplitOptions.None);
