@@ -15,24 +15,34 @@ namespace Staffportal
     public class Components
     {
         public static SqlConnection connection;
-        public static string Company_Name = "AceMedia";
+        public static string Company_Name = "Funct";
 
         public static Staffportall ObjNav
         {
             get
             {
-                var ws = new Staffportall();
+                // Enforce TLS 1.2
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                // Ignore SSL certificate validation (use only for testing)
+                ServicePointManager.ServerCertificateValidationCallback +=
+                    (sender, certificate, chain, sslPolicyErrors) => true;
+
+                var webservice = new Staffportall();
                 try
                 {
-                    var credentials = new NetworkCredential(ConfigurationManager.AppSettings["W_USER"], ConfigurationManager.AppSettings["W_PWD"]);
-                    ws.PreAuthenticate = true;
-                    ws.Credentials = credentials;
+                    var credentials = new NetworkCredential(
+                        ConfigurationManager.AppSettings["W_USER"],
+                        ConfigurationManager.AppSettings["W_PWD"]
+                    );
+                    webservice.Credentials = credentials;
+                    webservice.PreAuthenticate = true;
                 }
                 catch (Exception ex)
                 {
-                    ex.Data.Clear();
+                    Console.WriteLine("Error initializing web service: " + ex.Message);
                 }
-                return ws;
+                return webservice;
             }
         }
 
