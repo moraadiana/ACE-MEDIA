@@ -1,0 +1,83 @@
+﻿@model  Staffportal.Models.HumanResource
+@{
+    ViewBag.Title = "Individual Payslip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-lg-12 mb-4 order-0">
+            <div class="card">
+                <div class="card-body">
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-uppercase">Payslip</h5>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">
+                                    <a href="@Url.Action("index","dashboard")">Payslip</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <form action="@Url.Action("payslip","humanresource")" method="post">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Period Year</label>
+                                @Html.DropDownListFor(m => m.PeriodYear, new SelectList(Model.PeriodYears, "PeriodYear", "PeriodYear"), new { @class = "form-control", id = "period-year" })
+                            </div>
+                            <div class="col-md-3">
+                                <label>Period Month</label>
+                                <select class="form-control" name="PeriodMonth" id="period-month"></select>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <button class="btn btn-success" id="view-payslip" type="submit">View</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="dropdown-divider mt-3"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <embed src="@ViewBag.filepath" type="application/pdf" width="100%" height="500" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const periodYears = document.getElementById('period-year');
+    const periodMonth = document.getElementById('period-month');
+    const btnPayslip = document.getElementById('view-payslip');
+
+    const getPeriodMonths = async function () {
+        const year = periodYears.value;
+        const response = await fetch(`/api/getperiodmonths?periodYear=${year}`);
+        const result = await response.json();
+        let html = '';
+        result.forEach((el, i, arr) => {
+            html += `<option value='${el.PeriodMonth}'>${el.PeriodName}</option>`
+        });
+        periodMonth.innerHTML = html;
+    }
+    getPeriodMonths();
+    periodYears.addEventListener('change', getPeriodMonths);
+</script>

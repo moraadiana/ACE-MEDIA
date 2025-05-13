@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>@ViewBag.Title - TELPOSTA STAFF PORTAL</title>
-    <meta name="description" content="Telposta Staff portal" />
+    <title>@ViewBag.Title - ACE MEDIA STAFF PORTAL</title>
+    <meta name="description" content="ACE Media Staff portal" />
     <meta name="author" content="Diana Moraa" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="~/assets/img/logo/logo.png" />
@@ -89,11 +89,21 @@
                                     <div data-i18n="Leave Listing">Leave Listing</div>
                                 </a>
                             </li>
-                            <li class="menu-item" style="display: none;">
-                                <a href="@Url.Action("appraisallisting","humanresource")" class="menu-link">
-                                    <div data-i18n="Appraisal Listing">Appraisal Listing</div>
+                            <li class="menu-item">
+                                <a href="@Url.Action("payslip","humanresource")" class="menu-link">
+                                    <div data-i18n="Payslip">Payslip</div>
                                 </a>
                             </li>
+                            <li class="menu-item">
+                                <a href="@Url.Action("pnine","humanresource")" class="menu-link">
+                                    <div data-i18n="P9">P9</div>
+                                </a>
+                            </li>
+                            @*<li class="menu-item" style="display: none;">
+            <a href="@Url.Action("appraisallisting","humanresource")" class="menu-link">
+                <div data-i18n="Appraisal Listing">Appraisal Listing</div>
+            </a>
+        </li>*@
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -121,10 +131,10 @@
                         </a>
                         <ul class="menu-sub">
                             @*<li class="menu-item">
-                                <a href="@Url.Action("memolisting","finance")" class="menu-link">
-                                    <div data-i18n="Memo Listing">Memo Listing</div>
-                                </a>
-                            </li>*@
+                                    <a href="@Url.Action("memolisting","finance")" class="menu-link">
+                                        <div data-i18n="Memo Listing">Memo Listing</div>
+                                    </a>
+                                </li>*@
                             <li class="menu-item">
                                 <a href="@Url.Action("imprestlisting","finance")" class="menu-link">
                                     <div data-i18n="Imprest Listing">Imprest Listing</div>
@@ -156,25 +166,25 @@
                                 </a>
                             </li>
                             @*<li class="menu-item">
-                                <a href="@Url.Action("pettycashreimbursment","finance")" class="menu-link">
-                                    <div data-i18n="Petty Cash Reimbursment">Petty Cash Reimbursment</div>
-                                </a>
-                            </li>*@
+                                    <a href="@Url.Action("pettycashreimbursment","finance")" class="menu-link">
+                                        <div data-i18n="Petty Cash Reimbursment">Petty Cash Reimbursment</div>
+                                    </a>
+                                </li>*@
                         </ul>
                     </li>
                     @*<li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-building-house"></i>
-                            <div data-i18n="Projects">Projects</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="@Url.Action("index","project")" class="menu-link">
-                                    <div data-i18n="Budget Comparison">Budget Comparison</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>*@
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-building-house"></i>
+                                <div data-i18n="Projects">Projects</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="@Url.Action("index","project")" class="menu-link">
+                                        <div data-i18n="Budget Comparison">Budget Comparison</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>*@
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-cog"></i>
@@ -300,7 +310,7 @@
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                             <div class="mb-2 mb-md-0">
-                                Copyright &copy; @DateTime.Now.Year Telposta. Powered by <a href="https://www.appkings.co.ke" target="_blank">Appkings Solutions Limited.</a>
+                                Copyright &copy; @DateTime.Now.Year ACE MEDIA. Powered by <a href="https://www.appkings.co.ke" target="_blank">Appkings Solutions Limited.</a>
                             </div>
                         </div>
                     </footer>
@@ -319,6 +329,7 @@
     <!-- / Layout wrapper -->
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+
     <script src="~/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="~/assets/vendor/libs/popper/popper.js"></script>
     <script src="~/assets/vendor/js/bootstrap.js"></script>
@@ -353,5 +364,11 @@
             $('.select2').select2();
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

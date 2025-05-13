@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\AceMediaPortals\Staffportal</_PublishTargetUrl>
-    <History>True|2025-05-13T12:13:32.1487533Z||;True|2025-05-12T22:04:00.7492235+03:00||;True|2025-04-30T09:43:34.5318202+03:00||;True|2025-04-30T09:39:14.3500243+03:00||;True|2025-04-30T09:26:54.0587962+03:00||;</History>
+    <History>True|2025-05-13T12:22:25.5978001Z||;True|2025-05-13T15:13:32.1487533+03:00||;True|2025-05-12T22:04:00.7492235+03:00||;True|2025-04-30T09:43:34.5318202+03:00||;True|2025-04-30T09:39:14.3500243+03:00||;True|2025-04-30T09:26:54.0587962+03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -419,13 +419,13 @@
       <publishTime>04/30/2025 09:20:59</publishTime>
     </File>
     <File Include="bin/Staffportal.dll">
-      <publishTime>05/13/2025 15:13:29</publishTime>
+      <publishTime>05/13/2025 15:22:23</publishTime>
     </File>
     <File Include="bin/Staffportal.pdb">
-      <publishTime>05/13/2025 15:13:29</publishTime>
+      <publishTime>05/13/2025 15:22:23</publishTime>
     </File>
     <File Include="bin/Staffportal.XmlSerializers.dll">
-      <publishTime>05/13/2025 15:13:31</publishTime>
+      <publishTime>05/13/2025 15:22:24</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>04/30/2025 09:20:58</publishTime>
@@ -625,6 +625,9 @@
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>04/30/2025 09:20:58</publishTime>
     </File>
+    <File Include="Views/Account/ChangePassword.cshtml">
+      <publishTime>05/13/2025 15:20:31</publishTime>
+    </File>
     <File Include="Views/Account/ForgotPassword.cshtml">
       <publishTime>04/30/2025 09:20:58</publishTime>
     </File>
@@ -639,6 +642,9 @@
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
       <publishTime>04/30/2025 09:20:58</publishTime>
+    </File>
+    <File Include="Views/Dashboard/UpdateProfile.cshtml">
+      <publishTime>05/13/2025 15:20:31</publishTime>
     </File>
     <File Include="Views/Downloads/MemoReport.cshtml">
       <publishTime>04/30/2025 09:20:58</publishTime>
@@ -719,7 +725,13 @@
       <publishTime>04/30/2025 09:20:58</publishTime>
     </File>
     <File Include="Views/HumanResource/Payslip.cshtml">
-      <publishTime>04/30/2025 09:20:58</publishTime>
+      <publishTime>05/13/2025 15:20:31</publishTime>
+    </File>
+    <File Include="Views/HumanResource/Payslip1.cshtml">
+      <publishTime>05/13/2025 15:20:31</publishTime>
+    </File>
+    <File Include="Views/HumanResource/Pnine.cshtml">
+      <publishTime>05/13/2025 15:20:31</publishTime>
     </File>
     <File Include="Views/HumanResource/Pninie.cshtml">
       <publishTime>04/30/2025 09:20:58</publishTime>
@@ -737,7 +749,7 @@
       <publishTime>04/30/2025 09:20:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/12/2025 22:01:13</publishTime>
+      <publishTime>05/13/2025 15:20:31</publishTime>
     </File>
     <File Include="Views/Shared/_Login.cshtml">
       <publishTime>05/12/2025 22:01:13</publishTime>
