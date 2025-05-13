@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\AceMediaPortals\Staffportal</_PublishTargetUrl>
-    <History>True|2025-04-30T06:43:34.5318202Z||;True|2025-04-30T09:39:14.3500243+03:00||;True|2025-04-30T09:26:54.0587962+03:00||;</History>
+    <History>True|2025-05-13T12:13:32.1487533Z||;True|2025-05-12T22:04:00.7492235+03:00||;True|2025-04-30T09:43:34.5318202+03:00||;True|2025-04-30T09:39:14.3500243+03:00||;True|2025-04-30T09:26:54.0587962+03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -419,13 +419,13 @@
       <publishTime>04/30/2025 09:20:59</publishTime>
     </File>
     <File Include="bin/Staffportal.dll">
-      <publishTime>05/12/2025 16:13:55</publishTime>
+      <publishTime>05/13/2025 15:13:29</publishTime>
     </File>
     <File Include="bin/Staffportal.pdb">
-      <publishTime>05/12/2025 16:13:55</publishTime>
+      <publishTime>05/13/2025 15:13:29</publishTime>
     </File>
     <File Include="bin/Staffportal.XmlSerializers.dll">
-      <publishTime>05/12/2025 16:13:57</publishTime>
+      <publishTime>05/13/2025 15:13:31</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>04/30/2025 09:20:58</publishTime>
@@ -737,10 +737,10 @@
       <publishTime>04/30/2025 09:20:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/30/2025 09:20:58</publishTime>
+      <publishTime>05/12/2025 22:01:13</publishTime>
     </File>
     <File Include="Views/Shared/_Login.cshtml">
-      <publishTime>04/30/2025 09:20:58</publishTime>
+      <publishTime>05/12/2025 22:01:13</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/30/2025 09:20:58</publishTime>
