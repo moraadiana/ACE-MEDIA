@@ -87,7 +87,7 @@ namespace Staffportal.Controllers
                     TempData["Error"] = response;
                 }
                 //NotifyReliever(leaveNo, reliever, comments);
-               // TempData["Success"] = $"Leave requisition number {leaveNo} has been sent for approval successfully";
+               TempData["Success"] = $"Leave requisition number {leaveNo} has been sent for approval successfully";
                 return RedirectToAction("leavelisting", "humanresource");
             }
             catch (Exception ex)
@@ -195,5 +195,184 @@ namespace Staffportal.Controllers
             }
             return View(human);
         }
+        public ActionResult Pnine()
+        {
+            if (Session["username"] == null)
+                return RedirectToAction("index", "account");
+
+            var model = new Pnine();
+            try
+            {
+                model.payslipYears = HRHelper.GetPayslipYears();
+                int year = Convert.ToInt32(model.Year);
+                ViewBag.PdfUrl = TempData["PdfUrl"];
+                ViewBag.Error = TempData["Error"];
+                ViewBag.Success = TempData["Success"];
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+
+            return View(model);
+        }
+        public ActionResult Payslip()
+        {
+            if (Session["username"] == null)
+                return RedirectToAction("index", "account");
+
+            var model = new Payslip();
+            try
+            {
+                model.payslipYears = HRHelper.GetPayslipYears();
+                int year =Convert.ToInt32( model.Year);
+                //model.payslipMonths = HRHelper.GetPayslipMonths(year);
+                model.payslipMonths = new List<Config>();
+
+                ViewBag.PdfUrl = TempData["PdfUrl"];
+                ViewBag.Error = TempData["Error"];
+                ViewBag.Success = TempData["Success"];
+
+
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+
+            return View(model);
+        }
+        public ActionResult GenerateP9(string year)
+        {
+            string username = Session["username"]?.ToString();
+            if (username == null)
+                return RedirectToAction("index", "account");
+
+            if (string.IsNullOrEmpty(year))
+            {
+                TempData["Error"] = "Please select a valid year ";
+                return RedirectToAction("payslip");
+            }
+            try
+            {
+                string fileName = username.Replace(@"/", @"");
+                string pdfFileName = $"Payslip-{fileName}.pdf";
+
+                string path = Server.MapPath("~/Downloads/");
+                if (string.IsNullOrEmpty(path))
+                    throw new Exception("Resolved path is null or empty.");
+
+                string pdfFilePath = Path.Combine(path, pdfFileName);
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                if (System.IO.File.Exists(pdfFilePath))
+                    System.IO.File.Delete(pdfFilePath);
+                webportals.Generatep9Report(username,Convert.ToInt32(year), pdfFilePath);
+
+                TempData["PdfUrl"] = Url.Content($"~/Downloads/{pdfFileName}");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"An error occurred: {ex.Message}";
+            }
+            return RedirectToAction("Pnine");
+        }
+
+            [HttpGet]
+        
+        public JsonResult GetMonthsByYear(int year)
+        {
+            
+            Payslip payslip = new Payslip();
+           
+                var months = HRHelper.GetPayslipMonths(year);
+                payslip.payslipMonths = months;
+               
+
+            
+            return Json(months, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GeneratePayslip(string year, string month)
+        {
+            string username = Session["username"]?.ToString();
+            if (username == null)
+                return RedirectToAction("index", "account");
+
+            if (string.IsNullOrEmpty(year))
+            {
+                TempData["Error"] = "Please select a valid year ";
+                return RedirectToAction("payslip");
+            }
+            if (string.IsNullOrEmpty(month))
+            {
+                TempData["Error"] = "Please select a valid month ";
+                return RedirectToAction("payslip");
+            }
+
+            try
+            {
+                string fileName = username.Replace(@"/", @"");
+                string pdfFileName = $"Payslip-{fileName}.pdf";
+
+                string path = Server.MapPath("~/Downloads/");
+                if (string.IsNullOrEmpty(path))
+                    throw new Exception("Resolved path is null or empty.");
+
+                string pdfFilePath = Path.Combine(path, pdfFileName);
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                if (System.IO.File.Exists(pdfFilePath))
+                    System.IO.File.Delete(pdfFilePath);
+                //var model = new Payslip();
+                //var month = model.Month;
+
+                if (month == "12")
+                {
+                    month = "12";
+
+                }
+                else if (month == "11")
+                {
+                    month = "11";
+                }
+                else if (month == "10")
+                {
+                    month = "10";
+                }
+                else if (month == "")
+                {
+                    month = "01";
+                }
+                else
+                {
+                    month = "0" + month;
+                }
+                var myDate = month + "/01/" + year;
+                var period = DateTime.ParseExact(myDate, "M/dd/yyyy", CultureInfo.InvariantCulture);
+
+
+                 webportals.GeneratePaySlipReport(username, period, pdfFileName);
+                
+                 TempData["PdfUrl"] = Url.Content($"~/Downloads/{pdfFileName}");
+                   
+
+               
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"An error occurred: {ex.Message}";
+            }
+
+            return RedirectToAction("payslip");
+        }
+
     }
 }

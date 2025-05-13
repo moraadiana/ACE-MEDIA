@@ -139,6 +139,8 @@
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\Finance.cs" />
     <Compile Include="Models\HumanResource.cs" />
+    <Compile Include="Models\Payslip.cs" />
+    <Compile Include="Models\Pnine.cs" />
     <Compile Include="Models\Procurement.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="App_Data\ProcurementHelper.cs" />
@@ -320,16 +322,20 @@
     <Content Include="Views\HumanResource\LeaveApplication.cshtml" />
     <Content Include="Views\HumanResource\LeaveListing.cshtml" />
     <Content Include="Views\HumanResource\LeaveStatement.cshtml" />
-    <Content Include="Views\HumanResource\Payslip.cshtml" />
+    <Content Include="Views\HumanResource\Payslip1.cshtml" />
     <Content Include="Views\HumanResource\Pninie.cshtml" />
     <Content Include="Views\Finance\AddImprestLines.cshtml" />
     <Content Include="Views\Approvals\ApprovalTracking.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Downloads\MemoReport.cshtml" />
-    <Content Include="Web References\NAVWS\Reference.map">
+    <Content Include="Views\HumanResource\Payslip.cshtml" />
+    <Content Include="Views\HumanResource\Pnine.cshtml" />
+    <Content Include="Views\Dashboard\UpdateProfile.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\NAVWS\Staffportall.wsdl" />
   </ItemGroup>
   <ItemGroup>

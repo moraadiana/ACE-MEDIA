@@ -231,5 +231,60 @@ namespace Staffportal
             }
             return list;
         }
+        public static List<string> GetPayslipYears()
+        {
+            var list = new List<string>();
+            try
+            {
+                string result = webportals.GetPayslipYears();
+                if (!string.IsNullOrEmpty(result))
+                {
+                    string[] resultsArr = result.Split(new string[] { "[]" }, StringSplitOptions.RemoveEmptyEntries);
+                   // list.Add("-- Select Year--");
+                    list.AddRange(resultsArr); // Add all periods correctly
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Clear();
+            }
+            return list;
+        }
+        public static List<Config> GetPayslipMonths(int Year)
+        {
+            var list = new List<Config>();
+            try
+            {
+                string result = webportals.GetPayslipMonths(Year);
+                
+                if (!string.IsNullOrEmpty(result))
+                {
+                    string[] monthsArr = result.Split(strLimiters2, StringSplitOptions.RemoveEmptyEntries);
+                    
+                    foreach (string months in monthsArr)
+                    {
+                        string[] responseArr = months.Split(strLimiters, StringSplitOptions.None);
+                        if (responseArr.Length == 2)
+                        {
+                            string monthNumber = responseArr[0];
+                            string monthName = responseArr[1];
+
+                            
+                            list.Add(new Config()
+                            {
+                                Code = monthNumber,
+                                Description = monthName
+                            });
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Clear();
+            }
+            return list;
+        }
     }
 }

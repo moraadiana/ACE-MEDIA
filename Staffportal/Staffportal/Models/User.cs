@@ -20,5 +20,15 @@ namespace Staffportal.Models
         public decimal LeaveBalance { get; set; }
         public string PhoneNumber { get; set; }
         public string PostalAddress { get; set; }
+        public string DOB { get; set; }
+        public string MaritalStatus { get; set; }
+        public string StaffStatus { get;set; }
+
+        public string Religion { get; set; }
+        public string Tribe { get; set; }
+        public string County { get; set; }
+        public string Title { get; set; }
+
+
     }
 }

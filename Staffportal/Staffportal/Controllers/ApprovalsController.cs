@@ -33,14 +33,14 @@ namespace Staffportal.Controllers
                         {
                             Counter = counter,
                             DocumentNo = documentNo,
-                            EntryNo = Convert.ToInt32(responseArr[0]),
-                            SequenceNo = Convert.ToInt32(responseArr[1]),
-                            DateSentForApproval = Convert.ToDateTime(responseArr[2]),
-                            SenderId = responseArr[3],
-                            ApproverId = responseArr[4],
-                            Comments = responseArr[5],
-                            Status = responseArr[6],
-                            StatusCls = Components.StatusClass(responseArr[6]),
+                            EntryNo = Convert.ToInt32(responseArr[1]),
+                            SequenceNo = Convert.ToInt32(responseArr[2]),
+                            DateSentForApproval = Convert.ToDateTime(responseArr[3]),
+                            SenderId = responseArr[4],
+                            ApproverId = responseArr[5],
+                            Comments = responseArr[6],
+                            Status = responseArr[7],
+                            StatusCls = Components.StatusClass(responseArr[7]),
                         };
                         list.Add(approvalEntries);
                     }
