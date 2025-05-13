@@ -2,6 +2,34 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/Staffportall" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportall" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/Staffportall" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="HasPendingLeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingLeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingPettyCash">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="HasPendingPettyCash_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="InsertClaimRequisitionLines">
         <complexType>
           <sequence>
@@ -504,6 +532,31 @@
           </sequence>
         </complexType>
       </element>
+      <element name="UpdateEmployeeDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="gender" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="maritalStatus" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="religion" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tribe" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phoneNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="county" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="idNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="postalAddress" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="title" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateEmployeeDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="UpdateImprestHeader">
         <complexType>
           <sequence>
@@ -933,7 +986,23 @@
           <sequence />
         </complexType>
       </element>
-      <element name="GeneratePayslipReport">
+      <element name="GeneratePaySlipReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="period" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="filenameFromApp" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePaySlipReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePayslipReport1">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
@@ -942,7 +1011,7 @@
           </sequence>
         </complexType>
       </element>
-      <element name="GeneratePayslipReport_Result">
+      <element name="GeneratePayslipReport1_Result">
         <complexType>
           <sequence />
         </complexType>
@@ -1090,6 +1159,20 @@
         </complexType>
       </element>
       <element name="GetDocResponsibilityCentres_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetEmployeeDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetEmployeeDetails_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -1760,36 +1843,20 @@
           </sequence>
         </complexType>
       </element>
-      <element name="HasPendingLeaveApplication">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="username" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="HasPendingLeaveApplication_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="HasPendingPettyCash">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="accountNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="HasPendingPettyCash_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
-          </sequence>
-        </complexType>
-      </element>
     </schema>
   </types>
+  <message name="HasPendingLeaveApplication">
+    <part name="parameters" element="tns:HasPendingLeaveApplication" />
+  </message>
+  <message name="HasPendingLeaveApplication_Result">
+    <part name="parameters" element="tns:HasPendingLeaveApplication_Result" />
+  </message>
+  <message name="HasPendingPettyCash">
+    <part name="parameters" element="tns:HasPendingPettyCash" />
+  </message>
+  <message name="HasPendingPettyCash_Result">
+    <part name="parameters" element="tns:HasPendingPettyCash_Result" />
+  </message>
   <message name="InsertClaimRequisitionLines">
     <part name="parameters" element="tns:InsertClaimRequisitionLines" />
   </message>
@@ -1994,6 +2061,12 @@
   <message name="StaffLogin_Result">
     <part name="parameters" element="tns:StaffLogin_Result" />
   </message>
+  <message name="UpdateEmployeeDetails">
+    <part name="parameters" element="tns:UpdateEmployeeDetails" />
+  </message>
+  <message name="UpdateEmployeeDetails_Result">
+    <part name="parameters" element="tns:UpdateEmployeeDetails_Result" />
+  </message>
   <message name="UpdateImprestHeader">
     <part name="parameters" element="tns:UpdateImprestHeader" />
   </message>
@@ -2162,11 +2235,17 @@
   <message name="GenerateMemoReport_Result">
     <part name="parameters" element="tns:GenerateMemoReport_Result" />
   </message>
-  <message name="GeneratePayslipReport">
-    <part name="parameters" element="tns:GeneratePayslipReport" />
+  <message name="GeneratePaySlipReport">
+    <part name="parameters" element="tns:GeneratePaySlipReport" />
   </message>
-  <message name="GeneratePayslipReport_Result">
-    <part name="parameters" element="tns:GeneratePayslipReport_Result" />
+  <message name="GeneratePaySlipReport_Result">
+    <part name="parameters" element="tns:GeneratePaySlipReport_Result" />
+  </message>
+  <message name="GeneratePayslipReport1">
+    <part name="parameters" element="tns:GeneratePayslipReport1" />
+  </message>
+  <message name="GeneratePayslipReport1_Result">
+    <part name="parameters" element="tns:GeneratePayslipReport1_Result" />
   </message>
   <message name="GenerateStaffLeaveStatement">
     <part name="parameters" element="tns:GenerateStaffLeaveStatement" />
@@ -2233,6 +2312,12 @@
   </message>
   <message name="GetDocResponsibilityCentres_Result">
     <part name="parameters" element="tns:GetDocResponsibilityCentres_Result" />
+  </message>
+  <message name="GetEmployeeDetails">
+    <part name="parameters" element="tns:GetEmployeeDetails" />
+  </message>
+  <message name="GetEmployeeDetails_Result">
+    <part name="parameters" element="tns:GetEmployeeDetails_Result" />
   </message>
   <message name="GetEmployeeName">
     <part name="parameters" element="tns:GetEmployeeName" />
@@ -2510,19 +2595,15 @@
   <message name="HRMTrainingApplication_Result">
     <part name="parameters" element="tns:HRMTrainingApplication_Result" />
   </message>
-  <message name="HasPendingLeaveApplication">
-    <part name="parameters" element="tns:HasPendingLeaveApplication" />
-  </message>
-  <message name="HasPendingLeaveApplication_Result">
-    <part name="parameters" element="tns:HasPendingLeaveApplication_Result" />
-  </message>
-  <message name="HasPendingPettyCash">
-    <part name="parameters" element="tns:HasPendingPettyCash" />
-  </message>
-  <message name="HasPendingPettyCash_Result">
-    <part name="parameters" element="tns:HasPendingPettyCash_Result" />
-  </message>
   <portType name="Staffportall_Port">
+    <operation name="HasPendingLeaveApplication">
+      <input name="HasPendingLeaveApplication" message="tns:HasPendingLeaveApplication" />
+      <output name="HasPendingLeaveApplication_Result" message="tns:HasPendingLeaveApplication_Result" />
+    </operation>
+    <operation name="HasPendingPettyCash">
+      <input name="HasPendingPettyCash" message="tns:HasPendingPettyCash" />
+      <output name="HasPendingPettyCash_Result" message="tns:HasPendingPettyCash_Result" />
+    </operation>
     <operation name="InsertClaimRequisitionLines">
       <input name="InsertClaimRequisitionLines" message="tns:InsertClaimRequisitionLines" />
       <output name="InsertClaimRequisitionLines_Result" message="tns:InsertClaimRequisitionLines_Result" />
@@ -2659,6 +2740,10 @@
       <input name="StaffLogin" message="tns:StaffLogin" />
       <output name="StaffLogin_Result" message="tns:StaffLogin_Result" />
     </operation>
+    <operation name="UpdateEmployeeDetails">
+      <input name="UpdateEmployeeDetails" message="tns:UpdateEmployeeDetails" />
+      <output name="UpdateEmployeeDetails_Result" message="tns:UpdateEmployeeDetails_Result" />
+    </operation>
     <operation name="UpdateImprestHeader">
       <input name="UpdateImprestHeader" message="tns:UpdateImprestHeader" />
       <output name="UpdateImprestHeader_Result" message="tns:UpdateImprestHeader_Result" />
@@ -2771,9 +2856,13 @@
       <input name="GenerateMemoReport" message="tns:GenerateMemoReport" />
       <output name="GenerateMemoReport_Result" message="tns:GenerateMemoReport_Result" />
     </operation>
-    <operation name="GeneratePayslipReport">
-      <input name="GeneratePayslipReport" message="tns:GeneratePayslipReport" />
-      <output name="GeneratePayslipReport_Result" message="tns:GeneratePayslipReport_Result" />
+    <operation name="GeneratePaySlipReport">
+      <input name="GeneratePaySlipReport" message="tns:GeneratePaySlipReport" />
+      <output name="GeneratePaySlipReport_Result" message="tns:GeneratePaySlipReport_Result" />
+    </operation>
+    <operation name="GeneratePayslipReport1">
+      <input name="GeneratePayslipReport1" message="tns:GeneratePayslipReport1" />
+      <output name="GeneratePayslipReport1_Result" message="tns:GeneratePayslipReport1_Result" />
     </operation>
     <operation name="GenerateStaffLeaveStatement">
       <input name="GenerateStaffLeaveStatement" message="tns:GenerateStaffLeaveStatement" />
@@ -2818,6 +2907,10 @@
     <operation name="GetDocResponsibilityCentres">
       <input name="GetDocResponsibilityCentres" message="tns:GetDocResponsibilityCentres" />
       <output name="GetDocResponsibilityCentres_Result" message="tns:GetDocResponsibilityCentres_Result" />
+    </operation>
+    <operation name="GetEmployeeDetails">
+      <input name="GetEmployeeDetails" message="tns:GetEmployeeDetails" />
+      <output name="GetEmployeeDetails_Result" message="tns:GetEmployeeDetails_Result" />
     </operation>
     <operation name="GetEmployeeName">
       <input name="GetEmployeeName" message="tns:GetEmployeeName" />
@@ -3003,17 +3096,27 @@
       <input name="HRMTrainingApplication" message="tns:HRMTrainingApplication" />
       <output name="HRMTrainingApplication_Result" message="tns:HRMTrainingApplication_Result" />
     </operation>
-    <operation name="HasPendingLeaveApplication">
-      <input name="HasPendingLeaveApplication" message="tns:HasPendingLeaveApplication" />
-      <output name="HasPendingLeaveApplication_Result" message="tns:HasPendingLeaveApplication_Result" />
-    </operation>
-    <operation name="HasPendingPettyCash">
-      <input name="HasPendingPettyCash" message="tns:HasPendingPettyCash" />
-      <output name="HasPendingPettyCash_Result" message="tns:HasPendingPettyCash_Result" />
-    </operation>
   </portType>
   <binding name="Staffportall_Binding" type="tns:Staffportall_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="HasPendingLeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HasPendingLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasPendingLeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasPendingLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="HasPendingPettyCash">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HasPendingPettyCash" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="HasPendingPettyCash">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="HasPendingPettyCash_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="InsertClaimRequisitionLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:InsertClaimRequisitionLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="InsertClaimRequisitionLines">
@@ -3320,6 +3423,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="UpdateEmployeeDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdateEmployeeDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateEmployeeDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateEmployeeDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="UpdateImprestHeader">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:UpdateImprestHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="UpdateImprestHeader">
@@ -3572,12 +3684,21 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
-    <operation name="GeneratePayslipReport">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GeneratePayslipReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="GeneratePayslipReport">
+    <operation name="GeneratePaySlipReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GeneratePaySlipReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GeneratePaySlipReport">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
-      <output name="GeneratePayslipReport_Result">
+      <output name="GeneratePaySlipReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GeneratePayslipReport1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GeneratePayslipReport1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GeneratePayslipReport1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GeneratePayslipReport1_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -3677,6 +3798,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="GetDocResponsibilityCentres_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetEmployeeDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:GetEmployeeDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetEmployeeDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetEmployeeDetails_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -4091,24 +4221,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="HRMTrainingApplication_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="HasPendingLeaveApplication">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HasPendingLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="HasPendingLeaveApplication">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="HasPendingLeaveApplication_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="HasPendingPettyCash">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/Staffportall:HasPendingPettyCash" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="HasPendingPettyCash">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="HasPendingPettyCash_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
